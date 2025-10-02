@@ -1,5 +1,5 @@
 /* ==========================================================================
-   SKILLS – Variablen (component-scope)
+   SKILLS – Variablen 
    ========================================================================== */
 :host {
   --skills-title: #e15544;
@@ -35,7 +35,7 @@
   line-height: 140%;
   color: var(--skills-title);
 
-  margin: 8px 0 0 0;
+  margin: 8px 0 8px 0;
   opacity: 0.9;
 }
 
@@ -58,21 +58,84 @@
 }
 
 /* ==========================================================================
-   SKILLS – Grid
+   SKILLS – Grid-Container + Items 
    ========================================================================== */
+
 .skills__grid {
   position: absolute;
   top: 98px;
-  left: 111.5px;
+  left: 111px;
 
   width: 1219px;
   height: 325px;
 
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
-  gap: 100px;
-
+  grid-template-columns: repeat(6, 88px);
+  column-gap: 138px;
+  row-gap: 100px;
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.skill {
+  width: 88px;
+  height: 100px;
+  display: grid;
+  place-items: center;
+}
+
+.skill__card {
+  width: 88px;
+  height: 100px;
+  margin: 0;
+  display: grid;
+  place-items: center;
+}
+
+.skill__card img {
+  width: 88px;
+  height: 100px;
+  object-fit: contain;
+  display: block;
+}
+
+.skill__label {
+  display: none;
+}
+/* ==========================================================================
+   SKILLS – Skill-Hint (on hover)
+   ========================================================================== */
+.skill--questions {
+  position: relative; 
+  overflow: visible; 
+
+  .skill__hint {
+    position: absolute;
+    top: 50%; 
+    left: calc(100% + 24px); 
+    transform: translateY(-50%);
+    width: 26ch; 
+    max-width: 360px;
+    z-index: 2;
+
+    font-family: var(--skills-font);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.3;
+    color: var(--skills-sub);
+
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.18s ease;
+    text-align: left;
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
+  }
+
+  &:hover .skill__hint {
+    opacity: 1;
+  }
 }

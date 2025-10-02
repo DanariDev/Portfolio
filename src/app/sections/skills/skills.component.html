@@ -9,12 +9,16 @@
 
 
     <ul class="skills__grid" role="list">
-      <li class="skill" *ngFor="let s of skills">
+      <li class="skill" *ngFor="let s of skills" [ngClass]="{ 'skill--questions': s.id === 'questions' }">
         <figure class="skill__card">
           <img [src]="s.src" [alt]="s.label" loading="lazy" />
         </figure>
 
+        <p class="skill__hint" *ngIf="s.id === 'questions'">
+          {{ 'SKILLS.QUESTIONS_HINT' | translate }}
+        </p>
       </li>
     </ul>
+
   </div>
 </section>
