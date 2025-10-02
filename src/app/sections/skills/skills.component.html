@@ -1,1 +1,20 @@
-<!-- TODO: Skills HTML -->
+<section id="skills" class="skills" aria-labelledby="skills-title">
+  <div class="skills__box">
+    <h2 id="skills-title" class="skills__title">
+      {{ 'SKILLS.TITLE' | translate }}
+    </h2>
+    <h4 class="skills__subtitle">
+      {{ 'SKILLS.INTRO' | translate }}
+    </h4>
+
+
+    <ul class="skills__grid" role="list">
+      <li class="skill" *ngFor="let s of skills">
+        <figure class="skill__card">
+          <img [src]="s.src" [alt]="s.label" loading="lazy" />
+        </figure>
+
+      </li>
+    </ul>
+  </div>
+</section>

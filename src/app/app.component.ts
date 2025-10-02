@@ -4,6 +4,8 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { HeroComponent } from './sections/hero/hero.component';
 import { WhyMeComponent } from './sections/why-me/why-me.component';
+import { SkillsComponent } from './sections/skills/skills.component';
+
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -17,6 +19,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     HeroComponent,
     WhyMeComponent,
     TranslateModule,
+    SkillsComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

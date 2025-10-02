@@ -1,1 +1,78 @@
-/* TODO: Skills SCSS */
+/* ==========================================================================
+   SKILLS – Variablen (component-scope)
+   ========================================================================== */
+:host {
+  --skills-title: #e15544;
+  --skills-sub: #02f4bf;
+  --skills-font: "Roboto Mono", monospace;
+}
+
+/* ==========================================================================
+   SKILLS – Title
+   ========================================================================== */
+.skills__title {
+  width: 385px;
+  height: 65px;
+  top: -0.5px;
+  left: 111px;
+  transform: rotate(0deg);
+  opacity: 1;
+
+  font-family: var(--skills-font);
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 120%;
+  color: var(--skills-title);
+
+  margin: 0%;
+  white-space: nowrap;
+}
+
+.skills__subtitle {
+  font-family: var(--skills-font);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--skills-title);
+
+  margin: 8px 0 0 0;
+  opacity: 0.9;
+}
+
+/* ==========================================================================
+   SKILLS – Section
+   ========================================================================== */
+.skills {
+  width: 1440px;
+  height: 422px;
+  margin: 0 auto;
+  position: relative;
+  opacity: 1;
+}
+
+.skills__box {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   SKILLS – Grid
+   ========================================================================== */
+.skills__grid {
+  position: absolute;
+  top: 98px;
+  left: 111.5px;
+
+  width: 1219px;
+  height: 325px;
+
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 6 Spalten gleichmäßig */
+  gap: 100px;
+
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}

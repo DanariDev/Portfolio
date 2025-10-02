@@ -7,5 +7,9 @@
     "LOCATED": "in Berlin",
     "REMOTE": "open to remote work",
     "RELOCATE": "open to relocate"
+  },
+  "SKILLS": {
+    "TITLE": "My Skills",
+    "INTRO": "Technologies and tools I use regularly."
   }
 }
