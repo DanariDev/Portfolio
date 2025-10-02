@@ -1,0 +1,19 @@
+<header class="site-header">
+  <div class="inner">
+    <div class="cluster" role="group" aria-label="Brand and main navigation">
+      <div class="logo">
+        <button class="brand" (click)="scrollTo('hero')" aria-label="Home">&lt;DK&gt;</button>
+      </div>
+      <nav class="nav" aria-label="Main">
+        <a (click)="scrollTo('why-me')">Why me</a>
+        <a (click)="scrollTo('skills')">Skills</a>
+        <a (click)="scrollTo('projects')">Projects</a>
+        <a (click)="scrollTo('contact')">Contact</a>
+      </nav>
+    </div>
+
+    <div class="lang" aria-label="Language">
+      <button class="lang-btn">DE</button><span class="sep">|</span><button class="lang-btn">EN</button>
+    </div>
+  </div>
+</header>

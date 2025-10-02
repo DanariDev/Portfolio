@@ -1,0 +1,134 @@
+/* Header: 1440 x 92 innen, BG #120B35 */
+/* Fonts: Handjet fürs Logo, Roboto Mono für Nav/Language, Poppins für Trenner */
+@import url("https://fonts.googleapis.com/css2?family=Handjet:wght@400&family=Roboto+Mono:wght@400;700&family=Poppins:wght@400&display=swap");
+
+/* Balken vollbreit, Inhalt zentriert */
+.site-header {
+  background: #120b35;
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+
+  /* Farben für Links/Hover */
+  --nav-link: #e15544;
+  --nav-link-hover: #02f4bf;
+}
+
+/* Innenfläche exakt 1440 x 92 mit 24/140 Padding */
+.inner {
+  width: 1440px;
+  height: 92px;
+  box-sizing: border-box;
+  padding: 24px 140px;
+  display: grid;
+  grid-template-columns: auto 1fr; /* Cluster | Language rechts */
+  align-items: center;
+}
+
+/* Cluster (Logo + Nav) exakt 636 x 44 */
+.cluster {
+  width: 636px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 48px; /* 92 (Logo) + 48 + 496 (Nav) = 636 */
+}
+
+/* Logo "<DK>" – 92 x 44, Handjet 48/400, 5% LS, kein Border */
+.brand {
+  width: 92px;
+  height: 44px;
+  min-width: 92px;
+  line-height: 44px; /* vertikal mittig */
+  text-align: center;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  color: #e15544;
+
+  font-family: "Handjet", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 48px;
+  letter-spacing: 0.05em; /* 5% */
+  text-transform: uppercase;
+}
+
+/* Main-Navigation im Cluster – 4 Links à 100 x 26, Gap 32 */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;     /* Figma-Gap zwischen Links */
+  width: 496px;  /* 4*100 + 3*32 */
+  height: 44px;  /* sitzt mittig zum Cluster */
+}
+
+.nav a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100px;          /* Fixed(100px) */
+  height: 26px;          /* Fixed(26px) */
+  text-decoration: none;
+  color: var(--nav-link);
+  background: transparent;
+  border-radius: 6px;    /* weich – bei Bedarf auf 0 */
+  cursor: pointer;
+
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-weight: 400;
+  font-size: 18px;       /* passt in 26px Höhe */
+  line-height: 26px;     /* exakt mittig */
+
+  transition: color .3s ease-out;
+}
+
+.nav a:hover,
+.nav a:focus-visible {
+  color: var(--nav-link-hover); /* #02F4BF */
+  outline: none;
+  background: transparent;
+}
+
+/* Language rechts – Roboto Mono 700/18, Hover #02F4BF */
+.lang {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #e15544; /* Grundfarbe */
+}
+
+.lang-btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+
+  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+  font-weight: 700;  /* Bold */
+  font-size: 18px;
+  line-height: 25px; /* ~140% */
+  letter-spacing: 0;
+  color: #e15544;
+
+  transition: color .3s ease-out;
+}
+
+.lang-btn:hover,
+.lang-btn:focus-visible {
+  color: var(--nav-link-hover);
+  outline: none;
+}
+
+/* Trenner "|" – Poppins 400/18, 120% LH */
+.sep {
+  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px; /* 120% */
+  color: #e15544;
+  user-select: none;
+  pointer-events: none;
+}

@@ -1,0 +1,70 @@
+<section class="whyme" id="why-me">
+  <div class="whyme__img">
+    <img src="assets/img/Daniel_Profil_1.jpg" width="488" height="452" alt="Daniel Kwiatkowski – Profilbild">
+  </div>
+
+  <div class="whyme__content">
+    <div class="whyme__headline-box">
+      <h2 class="whyme__headline">{{ 'WHYME.TITLE' | translate }}</h2>
+    </div>
+
+    <p class="whyme__copy">{{ 'WHYME.COPY' | translate }}</p>
+
+
+    <div class="whyme_container">
+      <div class="located">
+        <div class="located__group" role="group" aria-label="Location">
+
+          <div class="located__label">
+            <span class="label-text">{{ 'WHYME.IAM' | translate }}</span>
+          </div>
+
+          <div class="located__icontext">
+            <span class="icon" aria-hidden="true">
+              <img class="pin" src="assets/img/Vector_normal.png" alt="">
+              <img class="shadow" src="assets/img/Ellipse-20.png" alt="">
+            </span>
+            <span class="text">{{ 'WHYME.LOCATED' | translate }}</span>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="relocate">
+        <div class="relocate_group" role="group" aria-label="Location">
+
+          <div class="arrow-5">
+            <img src="assets/img/Arrow-5.png" alt="">
+          </div>
+
+          <div class="relocate__icontext">
+            <span class="relocate_icontext">
+              <img class="icon_relocate" src="assets/img/relocate_normal.png" alt="">
+              <img class="relocate_hover" src="assets/img/Group-26.png" alt="">
+            </span>
+            <span class="relocate_text" [innerHTML]="'WHYME.RELOCATE' | translate"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="remote">
+        <div class="remote_group">
+          <div class="remote">
+            <div class="remote_icon">
+              <img class="icon_remote" src="assets/img/Icon-Remote.png" alt="">
+              <img class="icon_remote_hover" src="assets/img/Icon-Remote (1).png" alt="">
+            </div>
+            <span class="remote_text" [innerHTML]="'WHYME.REMOTE' | translate"></span>
+            <img src="assets/img/Arrow-4.png" alt="">
+          </div>
+          <div class="Arrow-01"> <img src="assets/img/Arrow-01.png" alt=""></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="btn-talk-wrap">
+      <button class="btn-talk" type="button">{{ 'WHYME.CTA' | translate }}</button>
+    </div>
+
+  </div>
+</section>

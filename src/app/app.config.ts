@@ -1,8 +1,27 @@
-import { ApplicationConfig } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import { ApplicationConfig, importProvidersFrom, inject } from '@angular/core';
+import { provideHttpClient, withInterceptorsFromDi, HttpClient } from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { Observable } from 'rxjs';
 
-import { routes } from './app.routes';
+
+export function customTranslateLoader(): TranslateLoader {
+  const http = inject(HttpClient);
+
+  return {
+    getTranslation(lang: string): Observable<Record<string, any>> {
+      return http.get<Record<string, any>>(`/assets/i18n/${lang}.json`);
+    }
+  } as TranslateLoader;
+}
 
 export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes)]
+  providers: [
+    provideHttpClient(withInterceptorsFromDi()),
+    importProvidersFrom(
+      TranslateModule.forRoot({
+        defaultLanguage: 'de',
+        loader: { provide: TranslateLoader, useFactory: customTranslateLoader }
+      })
+    )
+  ]
 };
