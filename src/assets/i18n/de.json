@@ -47,24 +47,34 @@
   },
 
   "REFERENCES": {
-  "HEADLINE": "Braucht ihr ’n Teamplayer? Das sagen Kolleg*innen über mich.",
-  "ITEMS": [
-    {
-      "name": "Noah Mueller",
-      "project": "Join",
-      "text": "Marcus musste Inhalte entwickeln, formatieren und in Zusammenarbeit mit dem Team liefern. Er ist zuverlässig und freundlich."
-    },
-    {
-      "name": "Evelyn Marx",
-      "project": "Join",
-      "text": "Er ist ein vertrauenswürdiger Teamplayer und kommt mit Termindruck klar. Strukturierte Arbeit und sauberer Code."
-    },
-    {
-      "name": "James Rugman",
-      "project": "Join",
-      "text": "Zuverlässig und freundlich. Arbeitet strukturiert und schreibt klaren Code. Klare Empfehlung als Kollege."
-    }
-  ]
-}
+    "HEADLINE": "Braucht ihr ’n Teamplayer? Das sagen Kolleg*innen über mich.",
+    "ITEMS": [
+      {
+        "name": "Stefan",
+        "project": "Join",
+        "text": "Ich habe Daniel als freundliche und ruhige Person kennengelernt. Mit seiner Erfahrung als Developer hat er verschiedenste kreative Lösungsansätze präsentiert und sich gut in das Team integriert.Die Zusammenarbeit lief stets reibungslos und koordiniert ab."
+      },
+      {
+        "name": "Evelyn Marx",
+        "project": "Join",
+        "text": "Er ist ein vertrauenswürdiger Teamplayer und kommt mit Termindruck klar. Strukturierte Arbeit und sauberer Code."
+      },
+      {
+        "name": "James Rugman",
+        "project": "Join",
+        "text": "Zuverlässig und freundlich. Arbeitet strukturiert und schreibt klaren Code. Klare Empfehlung als Kollege."
+      }
+    ]
+  },
 
+  "CONTACT": {
+    "TITLE": "Kontaktiere mich",
+    "INTRO": "Ich bin offen für neue Herausforderungen und freue mich darauf, mein Wissen und meine Kreativität in spannende Projekte einzubringen. Kontaktieren Sie mich gerne, wenn Sie eine motivierte Unterstützung für Ihr Team suchen.",
+    "EMAIL_LABEL": "E-mail:",
+    "EMAIL_VALUE": "danielkwiatkowski@gmx.de",
+    "PHONE_LABEL": "Tel:",
+    "PHONE_VALUE": "0176 80 54 35 72",
+    "PHONE_TEL": "017680543572",
+    "TO_TOP_LABEL": "nach oben"
+  }
 }

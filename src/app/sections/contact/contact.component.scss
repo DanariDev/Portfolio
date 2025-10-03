@@ -1,1 +1,135 @@
-/* TODO: Contact Section SCSS */
+:host {
+  --accent: #e15544;
+  --neon: #02f4bf;
+  --mono: "Roboto Mono", monospace;
+
+  --arrow-h: 44px;
+
+  --toTop-x: 98%;
+  --toTop-y: 46%;
+}
+
+.contact {
+  width: 100%;
+  padding: 32px 0 36px;
+}
+
+.contact__inner {
+  width: 1224px;
+  margin: 0 auto;
+  position: relative;
+  display: grid;
+  grid-template-columns: 560px 1fr;
+  grid-template-areas: "left right";
+  column-gap: 48px;
+  row-gap: 0;
+}
+
+.contact__left {
+  grid-area: left;
+  align-self: start;
+}
+
+.contact__header {
+  width: 425.05px;
+  height: 72.21px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: auto auto;
+  align-items: end;
+  column-gap: 16px;
+}
+
+.contact__title {
+  margin: 0;
+  font-family: var(--mono);
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 120%;
+  color: var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.contact__arrow {
+  position: static;
+  height: var(--arrow-h);
+  width: auto;
+  display: block;
+  transform: none;
+  pointer-events: none;
+  margin-bottom: 2px;
+}
+
+.contact__intro {
+  margin: 13px 0 0 2px;
+  max-width: 504px;
+  min-height: 73px;
+  font-family: var(--mono);
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: 0;
+  text-align: justify;
+  color: var(--neon);
+}
+
+.contact__right {
+  grid-area: right;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+  min-height: 0;
+}
+
+.contact__item {
+  display: grid;
+  grid-template-columns: 24px auto 1fr;
+  align-items: center;
+  column-gap: 12px;
+  font-family: var(--mono);
+  color: var(--neon);
+}
+
+.contact__icon {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.contact__label {
+  font-weight: 700;
+  font-size: 18px;
+}
+
+.contact__value {
+  font-size: 18px;
+  color: var(--neon);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact__value:hover,
+.contact__value:focus-visible {
+  color: var(--accent);
+  outline: none;
+}
+
+.contact__to-top {
+  position: absolute;
+  left: var(--toTop-x);
+  top: var(--toTop-y);
+  right: auto;
+  bottom: auto;
+  transform: translate(-50%, -50%);
+  display: inline-flex;
+  padding: 4px;
+}
+
+.contact__to-top img {
+  width: 20px;
+  height: auto;
+  display: block;
+}
+

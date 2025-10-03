@@ -8,6 +8,7 @@ import { SkillsComponent } from './sections/skills/skills.component';
 import { ProjectsHeadlineComponent } from './sections/projects-headline/projects-headline.component';
 import { ProjectsListComponent } from './sections/projects-list/projects-list.component';
 import { ReferencesComponent } from './sections/references/references.component';
+import { ContactComponent } from './sections/contact/contact.component';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -25,6 +26,7 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     ProjectsHeadlineComponent,
     ProjectsListComponent,
     ReferencesComponent,
+    ContactComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

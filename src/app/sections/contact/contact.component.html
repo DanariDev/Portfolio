@@ -1,1 +1,38 @@
-<!-- TODO: Contact Section HTML -->
+<section class="contact" aria-labelledby="contact-title">
+  <div class="contact__inner">
+    <div class="contact__left">
+      <header class="contact__header">
+        <h2 id="contact-title" class="contact__title">
+          {{ 'CONTACT.TITLE' | translate }}
+        </h2>
+        <img class="contact__arrow" src="assets/img/contact/arrow-title.png" alt="" aria-hidden="true" />
+      </header>
+
+      <p class="contact__intro">
+        {{ 'CONTACT.INTRO' | translate }}
+      </p>
+    </div>
+
+    <div class="contact__right" role="list">
+      <div class="contact__item contact__mail" role="listitem">
+        <img class="contact__icon" src="assets/img/contact/mail.png" alt="" aria-hidden="true" />
+        <span class="contact__label">{{ 'CONTACT.EMAIL_LABEL' | translate }}</span>
+        <a class="contact__value" [attr.href]="'mailto:' + ('CONTACT.EMAIL_VALUE' | translate)">
+          {{ 'CONTACT.EMAIL_VALUE' | translate }}
+        </a>
+      </div>
+
+      <div class="contact__item contact__phone" role="listitem">
+        <img class="contact__icon" src="assets/img/contact/phone.png" alt="" aria-hidden="true" />
+        <span class="contact__label">{{ 'CONTACT.PHONE_LABEL' | translate }}</span>
+        <a class="contact__value" [attr.href]="'tel:' + ('CONTACT.PHONE_TEL' | translate)">
+          {{ 'CONTACT.PHONE_VALUE' | translate }}
+        </a>
+      </div>
+    </div>
+
+    <a class="contact__to-top" href="#top" [attr.aria-label]="'CONTACT.TO_TOP_LABEL' | translate">
+      <img src="assets/img/contact/arrow-up.png" alt="" />
+    </a>
+  </div>
+</section>

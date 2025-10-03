@@ -44,26 +44,36 @@
       "LIVE": "Live Test"
     }
   },
-  
-  "REFERENCES": {
-  "HEADLINE": "Need a team player? Here’s what my colleagues say about me.",
-  "ITEMS": [
-    {
-      "name": "Noah Mueller",
-      "project": "Join",
-      "text": "Marcus had to develop, format and deliver content with the team. He is a reliable and friendly person."
-    },
-    {
-      "name": "Evelyn Marx",
-      "project": "Join",
-      "text": "He is a trustworthy team player and can cope with deadlines. Structured work and clear code."
-    },
-    {
-      "name": "James Rugman",
-      "project": "Join",
-      "text": "Reliable and friendly. Works in a structured way and writes clear code. I recommend him as a colleague."
-    }
-  ]
-}
 
+  "REFERENCES": {
+    "HEADLINE": "Need a team player? Here’s what my colleagues say about me.",
+    "ITEMS": [
+      {
+        "name": "Noah Mueller",
+        "project": "Join",
+        "text": "Marcus had to develop, format and deliver content with the team. He is a reliable and friendly person."
+      },
+      {
+        "name": "Evelyn Marx",
+        "project": "Join",
+        "text": "He is a trustworthy team player and can cope with deadlines. Structured work and clear code."
+      },
+      {
+        "name": "James Rugman",
+        "project": "Join",
+        "text": "Reliable and friendly. Works in a structured way and writes clear code. I recommend him as a colleague."
+      }
+    ]
+  },
+
+  "CONTACT": {
+    "TITLE": "Contact me",
+    "INTRO": "I am open to new opportunities and eager to contribute my skills and creativity to exciting projects. Feel free to reach out if you are looking for a motivated addition to your team.",
+    "EMAIL_LABEL": "E-mail:",
+    "EMAIL_VALUE": "danielkwiatkowski@gmx.de",
+    "PHONE_LABEL": "Tel:",
+    "PHONE_VALUE": "0176 80 54 35 72",
+    "PHONE_TEL": "017680543572",
+    "TO_TOP_LABEL": "back to top"
+  }
 }
