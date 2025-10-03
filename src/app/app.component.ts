@@ -5,7 +5,9 @@ import { FooterComponent } from './core/footer/footer.component';
 import { HeroComponent } from './sections/hero/hero.component';
 import { WhyMeComponent } from './sections/why-me/why-me.component';
 import { SkillsComponent } from './sections/skills/skills.component';
-
+import { ProjectsHeadlineComponent } from './sections/projects-headline/projects-headline.component';
+import { ProjectsListComponent } from './sections/projects-list/projects-list.component';
+import { ReferencesComponent } from './sections/references/references.component';
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -20,6 +22,9 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     WhyMeComponent,
     TranslateModule,
     SkillsComponent,
+    ProjectsHeadlineComponent,
+    ProjectsListComponent,
+    ReferencesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],

@@ -1,1 +1,122 @@
-/* TODO: References SCSS */
+:host {
+  --accent: #e15544;
+  --text: #02f4bf;
+
+  --refs-max-w: 1134px;
+  --box-gap: 32px;
+  --left-w: 140px;
+  --grid-gap: 48px;
+
+  --shift-x: 0px;
+  --shift-y: 0px;
+
+  --section-shift-x: -40px;
+}
+
+.references {
+  width: 100%;
+  max-width: var(--refs-max-w);
+  margin: 64px auto 0;
+  padding: 0 16px;
+  position: relative;
+  transform: translateX(var(--section-shift-x));
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.references__headline {
+  width: 808px;
+  max-width: 100%;
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  color: var(--accent);
+}
+
+.references__box {
+  position: relative;
+  display: grid;
+  grid-template-columns: var(--left-w) 1fr;
+  align-items: start;
+  gap: var(--box-gap);
+  transform: translate(var(--shift-x), var(--shift-y));
+}
+
+.references__left {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.references__arrow-img {
+  display: block;
+  height: 64px;
+  width: auto;
+}
+
+.references__right {
+  min-width: 0;
+}
+
+.references__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 297px);
+  gap: var(--grid-gap);
+  justify-content: center;
+  align-items: start;
+}
+
+.reference {
+  width: 297px;
+  min-height: 246px;
+  padding: 20px 16px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  background: transparent;
+}
+
+.reference__name {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 120%;
+  color: var(--accent);
+}
+
+.reference__project {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--text);
+}
+
+.reference__text {
+  margin: 0;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--text);
+  overflow-wrap: anywhere;
+  hyphens: auto;
+}
+
+.reference__meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.reference__name,
+.reference__project {
+  display: block;
+}

@@ -1,1 +1,233 @@
-/* TODO: Projects List SCSS */
+:root {
+  --proj-w: 588px;
+  --proj-h: 371px;
+  --gap: 24px;
+  --inner: 1134px;
+}
+
+.projects {
+  width: var(--inner);
+  margin: 0 auto;
+
+  height: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.projects__box {
+  width: 100%;
+  height: var(--proj-h);
+  margin: 0 auto 48px;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: var(--gap);
+
+  @media (max-width: 999px) {
+    width: auto;
+    max-width: calc(100% - 2rem);
+    height: auto;
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+.projects__box--reverse {
+  flex-direction: row-reverse;
+
+  @media (max-width: 999px) {
+    flex-direction: column;
+  }
+}
+.projects__box:last-child {
+  margin-bottom: 0;
+}
+
+.project__media {
+  flex: 0 0 var(--proj-w);
+  width: var(--proj-w);
+  height: var(--proj-h);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 0;
+  background: transparent;
+
+  @media (max-width: 999px) {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 588 / 371;
+  }
+}
+
+.project__media img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+}
+
+.media--contain {
+  background: #0b042d;
+}
+.media--contain img {
+  object-fit: contain;
+}
+
+.project__media[data-focus="top"] img {
+  object-position: center top;
+}
+.project__media[data-focus="bottom"] img {
+  object-position: center bottom;
+}
+.project__media[data-focus="left"] img {
+  object-position: left center;
+}
+.project__media[data-focus="right"] img {
+  object-position: right center;
+}
+.project__media[data-focus="top-left"] img {
+  object-position: left top;
+}
+.project__media[data-focus="top-right"] img {
+  object-position: right top;
+}
+.project__media[data-focus="bottom-left"] img {
+  object-position: left bottom;
+}
+.project__media[data-focus="bottom-right"] img {
+  object-position: right bottom;
+}
+
+.project__content {
+  position: relative;
+  top: -14px;
+  height: 318px;
+
+  flex: 0 0 498px;
+  width: 498px;
+  min-width: 0;
+
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 999px) {
+    top: 0;
+    flex: 1 1 auto;
+    width: 100%;
+    height: auto;
+  }
+}
+
+.projects__box:not(.projects__box--reverse) .project__content {
+  margin-left: 24px;
+}
+.projects__box.projects__box--reverse .project__content {
+  margin-right: 24px;
+}
+
+.project__header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.project__title {
+  margin: 0;
+  font-family: var(--mono, "Roboto Mono", monospace);
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 1.2;
+  color: #02f4bf;
+}
+
+.project__tech {
+  margin: 0;
+  font: 400 18px/1.4 "Roboto Mono", monospace;
+  color: #02f4bf;
+}
+
+.project__body {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.project__desc {
+  margin: 0;
+  font: 400 18px/1.4 "Roboto Mono", monospace;
+  color: #02f4bf;
+}
+
+.project__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.btn--ghost {
+  width: 125px;
+  height: 52px;
+  padding: 15px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  border: 1px solid #02f4bf;
+  background: transparent;
+  color: #e15544;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.15s;
+}
+.btn--ghost:hover {
+  filter: brightness(1.15);
+}
+.btn--ghost:active {
+  transform: translateY(1px);
+}
+
+.btn--neon {
+  min-width: 158px;
+  width: auto;
+  white-space: nowrap;
+  height: 52px;
+  padding: 15px 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+
+  background: #02f4bf;
+  border: 1px solid #02f4bf;
+  color: #0b042d;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 120%;
+  text-decoration: none;
+  transition: filter 0.2s, transform 0.15s, color 0.2s;
+}
+
+.btn--neon:hover {
+  filter: brightness(1.05);
+  color: #e15544;
+}
+
+.btn--neon:active {
+  transform: translateY(1px);
+}
+
+.project__buttons .btn--ghost:first-child:hover {
+  color: #02f4bf;
+  border-color: #02f4bf;
+}

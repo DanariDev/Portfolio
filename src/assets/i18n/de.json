@@ -12,5 +12,59 @@
     "TITLE": "Meine Skills",
     "INTRO": "Technologien und Tools, die ich regelmäßig einsetze.",
     "QUESTIONS_HINT": "Fordere mich heraus – ich lerne gerne neue Technologien."
-  }
+  },
+
+  "PROJECTS": {
+    "HEADLINE": "Mein Portfolio",
+    "ITEMS": [
+      {
+        "id": "join",
+        "title": "Join",
+        "tech": "Angular | TypeScript | HTML | CSS | Firebase",
+        "desc": "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Tasks mit Drag & Drop, nutze Nutzerzuweisungen und Kategorien.",
+        "img": "assets/img/projects/join.png",
+        "links": {
+          "github": "https://github.com/DEIN-USER/join",
+          "live": "https://join.deine-subdomain.tld"
+        }
+      },
+      {
+        "id": "pollo-loco",
+        "title": "Pollo Loco",
+        "tech": "JavaScript | HTML | CSS",
+        "desc": "Jump-, Run- und Wurfspiel auf OOP-Basis. Hilf Pepe, Münzen und Salsa zu finden, um das verrückte Huhn zu besiegen.",
+        "img": "assets/img/projects/pollo-loco.png",
+        "links": {
+          "github": "https://github.com/DEIN-USER/pollo-loco",
+          "live": "https://pollo.deine-subdomain.tld"
+        }
+      }
+    ],
+    "BUTTONS": {
+      "GITHUB": "GitHub",
+      "LIVE": "Live Test"
+    }
+  },
+
+  "REFERENCES": {
+  "HEADLINE": "Braucht ihr ’n Teamplayer? Das sagen Kolleg*innen über mich.",
+  "ITEMS": [
+    {
+      "name": "Noah Mueller",
+      "project": "Join",
+      "text": "Marcus musste Inhalte entwickeln, formatieren und in Zusammenarbeit mit dem Team liefern. Er ist zuverlässig und freundlich."
+    },
+    {
+      "name": "Evelyn Marx",
+      "project": "Join",
+      "text": "Er ist ein vertrauenswürdiger Teamplayer und kommt mit Termindruck klar. Strukturierte Arbeit und sauberer Code."
+    },
+    {
+      "name": "James Rugman",
+      "project": "Join",
+      "text": "Zuverlässig und freundlich. Arbeitet strukturiert und schreibt klaren Code. Klare Empfehlung als Kollege."
+    }
+  ]
+}
+
 }

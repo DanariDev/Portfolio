@@ -35,17 +35,18 @@
   line-height: 140%;
   color: var(--skills-title);
 
-  margin: 8px 0 8px 0;
+  margin: 8px 0 32px 0;   
   opacity: 0.9;
 }
+
 
 /* ==========================================================================
    SKILLS – Section
    ========================================================================== */
 .skills {
   width: 1440px;
-  height: 422px;
-  margin: 0 auto;
+  min-height: 422px;      
+  margin: 60px auto;      
   position: relative;
   opacity: 1;
 }
@@ -55,6 +56,7 @@
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  padding-left: 120px;
 }
 
 /* ==========================================================================
@@ -62,19 +64,15 @@
    ========================================================================== */
 
 .skills__grid {
-  position: absolute;
-  top: 98px;
-  left: 111px;
-
+  
   width: 1219px;
-  height: 325px;
-
+  height: auto;              
+  margin-top: 32px;          
   display: grid;
   grid-template-columns: repeat(6, 88px);
   column-gap: 138px;
   row-gap: 100px;
   list-style: none;
-  margin: 0;
   padding: 0;
 }
 

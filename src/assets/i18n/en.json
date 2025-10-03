@@ -12,5 +12,58 @@
     "TITLE": "My Skills",
     "INTRO": "Technologies and tools I use regularly.",
     "QUESTIONS_HINT": "Challenge me – I love learning new technologies."
-  }
+  },
+  "PROJECTS": {
+    "HEADLINE": "My Portfolio",
+    "ITEMS": [
+      {
+        "id": "join",
+        "title": "Join",
+        "tech": "Angular | TypeScript | HTML | CSS | Firebase",
+        "desc": "Task manager inspired by the Kanban System. Create and organize tasks with drag & drop, assign users and categories.",
+        "img": "assets/img/projects/join.jpg",
+        "links": {
+          "github": "https://github.com/DEIN-USER/join",
+          "live": "https://join.deine-subdomain.tld"
+        }
+      },
+      {
+        "id": "pollo-loco",
+        "title": "Pollo Loco",
+        "tech": "JavaScript | HTML | CSS",
+        "desc": "Jump, run and throw game based on OOP. Help Pepe find coins and salsa to beat the crazy hen.",
+        "img": "assets/img/projects/pollo-loco.jpg",
+        "links": {
+          "github": "https://github.com/DEIN-USER/pollo-loco",
+          "live": "https://pollo.deine-subdomain.tld"
+        }
+      }
+    ],
+    "BUTTONS": {
+      "GITHUB": "GitHub",
+      "LIVE": "Live Test"
+    }
+  },
+  
+  "REFERENCES": {
+  "HEADLINE": "Need a team player? Here’s what my colleagues say about me.",
+  "ITEMS": [
+    {
+      "name": "Noah Mueller",
+      "project": "Join",
+      "text": "Marcus had to develop, format and deliver content with the team. He is a reliable and friendly person."
+    },
+    {
+      "name": "Evelyn Marx",
+      "project": "Join",
+      "text": "He is a trustworthy team player and can cope with deadlines. Structured work and clear code."
+    },
+    {
+      "name": "James Rugman",
+      "project": "Join",
+      "text": "Reliable and friendly. Works in a structured way and writes clear code. I recommend him as a colleague."
+    }
+  ]
+}
+
 }

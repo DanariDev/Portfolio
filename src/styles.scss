@@ -1,14 +1,22 @@
 @use './styles/_tokens';
 
 * { box-sizing: border-box; }
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; }
 
-html { background: var(--page-bg, #120B35); } 
+html { background: var(--page-bg, #120B35); }
 body {
-  max-width: 1440px;
+  max-width: 1440px;     
   width: 100%;
   margin: 0 auto;
   background: var(--page-bg, #120B35);
-  color: var(--nav-fg, #EDEBFF);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+
+app-footer, footer {
+  position: static;
 }

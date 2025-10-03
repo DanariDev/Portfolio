@@ -1,1 +1,26 @@
-<!-- TODO: References HTML -->
+<section class="references" aria-labelledby="references-title">
+  <h2 id="references-title" class="references__headline">
+    {{ 'REFERENCES.HEADLINE' | translate }}
+  </h2>
+
+  <div class="references__box">
+
+    <div class="references__left" aria-hidden="true">
+      <img class="references__arrow-img" src="assets/img/references/arrow.png" alt="">
+    </div>
+
+
+    <div class="references__right">
+      <div class="references__grid">
+        <article class="reference" *ngFor="let r of references">
+          <header class="reference__meta">
+            <strong class="reference__name">{{ r.name }}</strong>
+            <span class="reference__project">Projekt: {{ r.project }}</span>
+          </header>
+          <p class="reference__text">{{ r.text }}</p>
+        </article>
+      </div>
+    </div>
+
+  </div>
+</section>

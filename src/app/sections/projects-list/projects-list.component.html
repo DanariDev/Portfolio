@@ -1,1 +1,30 @@
-<!-- TODO: Projects List HTML -->
+<section class="projects" aria-label="Projects">
+  <div class="projects__box" *ngFor="let p of projects; let i = index; trackBy: trackById"
+    [class.projects__box--reverse]="isReverse(i)" [attr.data-id]="p.id">
+    <figure class="project__media" [class.media--contain]="p.fit === 'contain'" [attr.data-focus]="p.focus || null">
+      <img [src]="p.img" [alt]="p.title" loading="lazy" />
+    </figure>
+
+    <div class="project__content">
+      <div class="project__header">
+        <h3 class="project__title">{{ p.title }}</h3>
+        <p class="project__tech">{{ p.tech }}</p>
+      </div>
+
+      <div class="project__body">
+        <p class="project__desc">{{ p.desc }}</p>
+
+        <div class="project__buttons">
+          <a *ngIf="p.links?.github" class="btn btn--ghost" [attr.href]="p.links?.github" target="_blank"
+            rel="noopener">
+            {{ 'PROJECTS.BUTTONS.GITHUB' | translate }}
+          </a>
+
+          <a *ngIf="p.links?.live" class="btn btn--neon" [attr.href]="p.links?.live" target="_blank" rel="noopener">
+            {{ 'PROJECTS.BUTTONS.LIVE' | translate }}
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

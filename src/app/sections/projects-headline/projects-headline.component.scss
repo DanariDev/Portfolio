@@ -1,1 +1,38 @@
-/* TODO: Projects Headline SCSS */
+:host { 
+  display: block; 
+}
+
+.projects-headline-wrap {
+  width: 1439px;          
+  height: 65px;           
+  margin: 120px auto 0;  
+  box-sizing: border-box;
+
+  padding-left: 541px;
+  padding-right: 541px;
+
+  display: flex;
+  gap: 10px;
+}
+
+.projects-headline {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.projects-headline__title {
+  margin-bottom: 160px;
+
+  font-family: "Roboto Mono", monospace;
+  font-weight: 500;
+  font-size: 54px;
+  line-height: 120%;
+  letter-spacing: 0;
+  color: #E15544;
+  white-space: nowrap;  
+}
+
