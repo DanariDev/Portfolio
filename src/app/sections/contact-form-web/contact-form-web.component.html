@@ -3,13 +3,21 @@
     {{ 'CONTACTFORM.HEADLINE' | translate }}
   </h2>
 
-  <form #f="ngForm" class="contact__grid" (ngSubmit)="onSubmit(f)">
+  <form #f="ngForm" class="contact__grid" (ngSubmit)="onSubmit(f)" novalidate>
 
     <!-- NAME -->
     <label class="field field--name">
       <span class="field__box">
-        <input class="field__control" type="text" name="name" [(ngModel)]="data.name" required #name="ngModel"
-          placeholder="{{ 'CONTACTFORM.NAME' | translate }}" />
+        <input
+          class="field__control"
+          type="text"
+          name="name"
+          [(ngModel)]="data.name"
+          required
+          #name="ngModel"
+          autocomplete="name"
+          placeholder="{{ 'CONTACTFORM.NAME' | translate }}"
+        />
         <span class="error-inline" *ngIf="f.submitted && name.invalid">
           {{ 'CONTACTFORM.ERROR_NAME' | translate }} <i>!</i>
         </span>
@@ -19,8 +27,17 @@
     <!-- EMAIL -->
     <label class="field field--email">
       <span class="field__box">
-        <input class="field__control" type="email" name="email" [(ngModel)]="data.email" required email #email="ngModel"
-          placeholder="{{ 'CONTACTFORM.EMAIL' | translate }}" />
+        <input
+          class="field__control"
+          type="email"
+          name="email"
+          [(ngModel)]="data.email"
+          required
+          email
+          #email="ngModel"
+          autocomplete="email"
+          placeholder="{{ 'CONTACTFORM.EMAIL' | translate }}"
+        />
         <span class="error-inline" *ngIf="f.submitted && email.invalid">
           {{ 'CONTACTFORM.ERROR_EMAIL' | translate }} <i>!</i>
         </span>
@@ -30,19 +47,32 @@
     <!-- MESSAGE -->
     <label class="field field--message">
       <span class="field__box">
-        <textarea class="field__control" name="message" [(ngModel)]="data.message" required #msg="ngModel"
-          placeholder="{{ 'CONTACTFORM.MESSAGE' | translate }}"></textarea>
+        <textarea
+          class="field__control"
+          name="message"
+          [(ngModel)]="data.message"
+          required
+          #msg="ngModel"
+          rows="6"
+          placeholder="{{ 'CONTACTFORM.MESSAGE' | translate }}"
+        ></textarea>
         <span class="error-inline" *ngIf="f.submitted && msg.invalid">
           {{ 'CONTACTFORM.ERROR_MESSAGE' | translate }} <i>!</i>
         </span>
       </span>
     </label>
 
-    <!-- PRIVACY -->
+    <!-- PRIVACY CHECKBOX -->
     <div class="consent">
       <label class="check">
-        <input class="check__control" type="checkbox" name="privacy" [(ngModel)]="data.privacy" required
-          #privacy="ngModel" />
+        <input
+          class="check__control"
+          type="checkbox"
+          name="privacy"
+          [(ngModel)]="data.privacy"
+          required
+          #privacy="ngModel"
+        />
         <span class="check__text">
           {{ 'CONTACTFORM.PRIVACY' | translate }}
           <a class="check__link" href="/privacy" target="_blank" rel="noopener">
@@ -58,10 +88,19 @@
     </div>
 
     <!-- SUBMIT -->
-    <button class="send-btn" type="submit" [disabled]="sending" [class.is-accepted]="privacy?.valid">
-      {{ sending ? ('CONTACTFORM.SENDING' | translate)
-      : (sent ? ('CONTACTFORM.SENT' | translate)
-      : ('CONTACTFORM.SUBMIT' | translate)) }}
+    <button
+      class="send-btn"
+      type="submit"
+      [disabled]="sending"
+      [class.is-accepted]="privacy?.valid"
+    >
+      {{
+        sending
+          ? ('CONTACTFORM.SENDING' | translate)
+          : (sent
+              ? ('CONTACTFORM.SENT' | translate)
+              : ('CONTACTFORM.SUBMIT' | translate))
+      }}
     </button>
 
   </form>
