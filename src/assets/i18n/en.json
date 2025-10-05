@@ -75,5 +75,22 @@
     "PHONE_VALUE": "0176 80 54 35 72",
     "PHONE_TEL": "017680543572",
     "TO_TOP_LABEL": "back to top"
+  },
+
+  "CONTACTFORM": {
+    "HEADLINE": "Contact",
+    "NAME": "Your Name",
+    "EMAIL": "Your Email",
+    "MESSAGE": "Your Message",
+    "PRIVACY": "I’ve read the",
+    "PRIVACY_LINK": "privacy policy",
+    "PRIVACY_AGREE": "and agree to the processing of my data as outlined.",
+    "SUBMIT": "Send",
+    "SENDING": "Sending…",
+    "SENT": "Sent ✓",
+    "ERROR_NAME": "Your name is required",
+    "ERROR_EMAIL": "A valid email is required",
+    "ERROR_MESSAGE": "Your message is required",
+    "ERROR_PRIVACY": "You must accept the privacy policy"
   }
 }

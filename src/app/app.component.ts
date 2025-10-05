@@ -9,6 +9,8 @@ import { ProjectsHeadlineComponent } from './sections/projects-headline/projects
 import { ProjectsListComponent } from './sections/projects-list/projects-list.component';
 import { ReferencesComponent } from './sections/references/references.component';
 import { ContactComponent } from './sections/contact/contact.component';
+import { ContactFormWebComponent } from './sections/contact-form-web/contact-form-web.component';
+
 
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
@@ -21,13 +23,15 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
     FooterComponent,
     HeroComponent,
     WhyMeComponent,
-    TranslateModule,
     SkillsComponent,
     ProjectsHeadlineComponent,
     ProjectsListComponent,
     ReferencesComponent,
-    ContactComponent,
+    ContactComponent,         
+    ContactFormWebComponent,  
+    TranslateModule,
   ],
+
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
