@@ -1,0 +1,37 @@
+{
+  "title": "Datenschutzerklärung",
+  "updated": "Aktualisiert am: 05.10.2025",
+  "sections": [
+    {
+      "id": "controller",
+      "heading": "1. Verantwortlicher",
+      "paragraphs": [
+        "Daniel Kwiatkowski, Straße 180 41a, 13127 Berlin",
+        "E-Mail: danielkwiatkowski@gmx.de"
+      ]
+    },
+    {
+      "id": "hosting",
+      "heading": "2. Hosting & Logfiles",
+      "paragraphs": [
+        "Beim Aufruf dieser Website werden technisch notwendige Daten (IP-Adresse, Datum/Uhrzeit, User-Agent) serverseitig verarbeitet.",
+        "Die Verarbeitung dient der Auslieferung der Website und der Sicherheit des Betriebs (Art. 6 Abs. 1 lit. f DSGVO)."
+      ]
+    },
+    {
+      "id": "contact",
+      "heading": "3. Kontaktaufnahme",
+      "paragraphs": [
+        "Bei einer Kontaktaufnahme verarbeiten wir die von Ihnen angegebenen Daten zur Bearbeitung der Anfrage (Art. 6 Abs. 1 lit. b DSGVO)."
+      ]
+    },
+    {
+      "id": "rights",
+      "heading": "4. Ihre Rechte",
+      "paragraphs": [
+        "Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch.",
+        "Sie haben zudem das Recht auf Beschwerde bei einer Aufsichtsbehörde."
+      ]
+    }
+  ]
+}

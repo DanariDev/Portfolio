@@ -1,0 +1,9 @@
+<section class="privacy" *ngIf="doc() as d">
+  <h1 class="privacy__title">{{ d.title }}</h1>
+  <p class="privacy__updated" *ngIf="d.updated">{{ d.updated }}</p>
+
+  <article class="privacy__section" *ngFor="let s of d.sections" [id]="s.id">
+    <h2 class="privacy__heading">{{ s.heading }}</h2>
+    <p class="privacy__p" *ngFor="let p of s.paragraphs">{{ p }}</p>
+  </article>
+</section>

@@ -1,0 +1,37 @@
+{
+  "title": "Privacy Policy",
+  "updated": "Updated: 2025-10-05",
+  "sections": [
+    {
+      "id": "controller",
+      "heading": "1. Controller",
+      "paragraphs": [
+        "Daniel Kwiatkowski, Straße 180 41a, 13127 Berlin, Germany",
+        "Email: danielkwiatkowski@gmx.de"
+      ]
+    },
+    {
+      "id": "hosting",
+      "heading": "2. Hosting & Log Files",
+      "paragraphs": [
+        "When visiting this website, technical data (IP address, date/time, user-agent) is processed on the server.",
+        "Processing is required to deliver the site and ensure operational security (Art. 6(1)(f) GDPR)."
+      ]
+    },
+    {
+      "id": "contact",
+      "heading": "3. Contact",
+      "paragraphs": [
+        "If you contact us, we process the data you provide to handle your request (Art. 6(1)(b) GDPR)."
+      ]
+    },
+    {
+      "id": "rights",
+      "heading": "4. Your rights",
+      "paragraphs": [
+        "You have the right of access, rectification, erasure, restriction, data portability and to object.",
+        "You may also lodge a complaint with a supervisory authority."
+      ]
+    }
+  ]
+}

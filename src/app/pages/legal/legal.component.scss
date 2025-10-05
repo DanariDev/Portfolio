@@ -1,0 +1,21 @@
+:host {
+  --accent: #e15544;
+  --text: #02f4bf;
+  --mono: "Roboto Mono", monospace;
+}
+
+.legal {
+  width: 100%;
+  max-width: 1134px;
+  margin: 64px auto;
+  padding: 0 16px;
+  font-family: var(--mono);
+  color: var(--text);
+}
+
+.legal__title { font-size: 32px; line-height: 1.2; color: var(--accent); margin: 0 0 8px; }
+.legal__date  { opacity: .7; margin: 0 0 24px; }
+
+.legal__sec   { margin: 24px 0; }
+.legal__h     { font-size: 20px; margin: 0 0 8px; color: var(--accent); }
+.legal__p     { margin: 0 0 8px; }

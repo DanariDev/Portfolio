@@ -1,0 +1,15 @@
+:host { --accent:#e15544; --text:#cde7ff; --mono:"Roboto Mono", monospace; }
+
+.privacy {
+  width: 100%;
+  max-width: 1134px;
+  margin: 64px auto;
+  padding: 0 16px;
+  font-family: var(--mono);
+  color: var(--text);
+}
+.privacy__title { font-size: 32px; line-height: 1.2; color: var(--accent); margin: 0 0 8px; }
+.privacy__updated { opacity: .7; margin: 0 0 24px; }
+.privacy__section { margin: 24px 0; }
+.privacy__heading { font-size: 20px; margin: 0 0 8px; color: var(--accent); }
+.privacy__p { margin: 0 0 8px; }

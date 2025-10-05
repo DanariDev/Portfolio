@@ -1,5 +1,10 @@
 <footer class="site-footer">
   <div class="inner">
+    <nav class="footer-nav">
+      <a routerLink="/legal" routerLinkActive="active">{{ 'FOOTER.LEGAL' | translate }}</a>
+      <a routerLink="/privacy" routerLinkActive="active">{{ 'FOOTER.PRIVACY' | translate }}</a>
+    </nav>
     <small>© {{ year }} Daniel Kwiatkowski</small>
+
   </div>
 </footer>

@@ -93,5 +93,22 @@
     "ERROR_EMAIL": "Bitte geben Sie eine gültige E-Mail ein",
     "ERROR_MESSAGE": "Bitte geben Sie eine Nachricht ein",
     "ERROR_PRIVACY": "Bitte akzeptieren Sie die Datenschutzerklärung"
-  }
+  },
+
+
+
+
+
+
+  "FOOTER": {
+  "LEGAL": "Rechtlicher Hinweis",
+  "PRIVACY": "Datenschutz"
 }
+}
+
+
+
+
+
+
+

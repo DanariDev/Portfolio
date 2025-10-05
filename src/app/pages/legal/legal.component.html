@@ -1,0 +1,9 @@
+<section class="legal" *ngIf="doc() as d">
+  <h1 class="legal__title">{{ d.title }}</h1>
+  <p class="legal__date" *ngIf="d.date">{{ d.date }}</p>
+
+  <article class="legal__sec" *ngFor="let s of d.sections">
+    <h2 class="legal__h">{{ s.heading }}</h2>
+    <p class="legal__p" *ngFor="let p of s.paragraphs">{{ p }}</p>
+  </article>
+</section>

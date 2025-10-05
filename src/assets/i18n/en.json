@@ -92,5 +92,18 @@
     "ERROR_EMAIL": "A valid email is required",
     "ERROR_MESSAGE": "Your message is required",
     "ERROR_PRIVACY": "You must accept the privacy policy"
-  }
+  },
+
+
+
+
+
+
+  "FOOTER": {
+  "LEGAL": "Legal Notice",
+  "PRIVACY": "Privacy Policy"
 }
+}
+
+
+
