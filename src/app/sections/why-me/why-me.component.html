@@ -1,70 +1,114 @@
-<section class="whyme" id="why-me">
+<section class="whyme" id="why-me" aria-labelledby="why-me-title">
   <div class="whyme__img">
     <img src="assets/img/Daniel_Profil_1.jpg" width="488" height="452" alt="Daniel Kwiatkowski – Profilbild">
   </div>
 
   <div class="whyme__content">
     <div class="whyme__headline-box">
-      <h2 class="whyme__headline">{{ 'WHYME.TITLE' | translate }}</h2>
+      <h2 id="why-me-title" class="whyme__headline">{{ 'WHYME.TITLE' | translate }}</h2>
     </div>
 
     <p class="whyme__copy">{{ 'WHYME.COPY' | translate }}</p>
 
-
     <div class="whyme_container">
-      <div class="located">
-        <div class="located__group" role="group" aria-label="Location">
+      <div class="whyme__arrow whyme__arrow--left Arrow-01" aria-hidden="true">
+        <img src="assets/img/skills/Arrow-01.png" alt="">
+      </div>
 
+      <div class="whyme__rows">
+        <div class="whyme__row located" role="group" aria-label="Location">
           <div class="located__label">
             <span class="label-text">{{ 'WHYME.IAM' | translate }}</span>
           </div>
-
-          <div class="located__icontext">
+          <div class="row__content located__icontext">
             <span class="icon" aria-hidden="true">
               <img class="pin" src="assets/img/Vector_normal.png" alt="">
               <img class="shadow" src="assets/img/Ellipse-20.png" alt="">
             </span>
             <span class="text">{{ 'WHYME.LOCATED' | translate }}</span>
           </div>
-
         </div>
-      </div>
 
-      <div class="relocate">
-        <div class="relocate_group" role="group" aria-label="Location">
-
-          <div class="arrow-5">
-            <img src="assets/img/Arrow-5.png" alt="">
-          </div>
-
-          <div class="relocate__icontext">
-            <span class="relocate_icontext">
+        <div class="whyme__row relocate" role="group" aria-label="Relocation">
+          <div class="row__content relocate__icontext">
+            <span class="arrow-5-inrow" aria-hidden="true">
+              <img src="assets/img/Arrow-5.png" alt="">
+            </span>
+            <span class="relocate_icontext" aria-hidden="true">
               <img class="icon_relocate" src="assets/img/relocate_normal.png" alt="">
               <img class="relocate_hover" src="assets/img/Group-26.png" alt="">
             </span>
             <span class="relocate_text" [innerHTML]="'WHYME.RELOCATE' | translate"></span>
           </div>
         </div>
-      </div>
 
-      <div class="remote">
-        <div class="remote_group">
-          <div class="remote">
-            <div class="remote_icon">
+        <div class="whyme__row remote" role="group" aria-label="Remote">
+          <div class="row__content">
+            <span class="remote_icon" aria-hidden="true">
               <img class="icon_remote" src="assets/img/Icon-Remote.png" alt="">
               <img class="icon_remote_hover" src="assets/img/Icon-Remote (1).png" alt="">
-            </div>
+            </span>
             <span class="remote_text" [innerHTML]="'WHYME.REMOTE' | translate"></span>
-            <img src="assets/img/Arrow-4.png" alt="">
+            <span class="remote_arrows" aria-hidden="true">
+              <img class="arrow-4" src="assets/img/Arrow-4.png" alt="">
+              <img class="arrow-01" src="assets/img/Arrow-01.png" alt="">
+            </span>
           </div>
-          <div class="Arrow-01"> <img src="assets/img/Arrow-01.png" alt=""></div>
         </div>
       </div>
     </div>
 
     <div class="btn-talk-wrap">
-      <button class="btn-talk" type="button">{{ 'WHYME.CTA' | translate }}</button>
+      <button class="btn-talk" type="button" (click)="goTo('contact-form-web')">
+        {{ 'WHYME.CTA' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-version">
+    <div class="whyme__headline-box">
+      <h2 id="why-me-title" class="whyme__headline">
+        {{ 'WHYME.TITLE' | translate }}
+      </h2>
     </div>
 
+    <p class="whyme__copy">{{ 'WHYME.COPY' | translate }}</p>
+
+    <img class="mv-arrow mv-arrow--top" src="assets/img/Arrow-5.png" alt="">
+
+    <div class="located__label">
+      <span class="label-text">{{ 'WHYME.IAM' | translate }}</span>
+    </div>
+
+    <div class="whyme-rows-mobile">
+      <div class="mv-row">
+        <span class="mv-icon">
+          <img src="assets/img/Vector_normal.png" alt="">
+        </span>
+        <span class="mv-text">{{ 'WHYME.LOCATED' | translate }}</span>
+      </div>
+
+      <div class="mv-row">
+        <span class="mv-icon">
+          <img src="assets/img/relocate_normal.png" alt="">
+        </span>
+        <span class="mv-text" [innerHTML]="'WHYME.RELOCATE' | translate"></span>
+      </div>
+
+      <div class="mv-row">
+        <span class="mv-icon">
+          <img src="assets/img/Icon-Remote.png" alt="">
+        </span>
+        <span class="mv-text" [innerHTML]="'WHYME.REMOTE' | translate"></span>
+      </div>
+    </div>
+
+    <img class="mv-arrow mv-arrow--bottom" src="assets/img/why-me-responsiv/Arrow 4.png" alt="">
+
+    <div class="btn-talk-wrap mobile-cta">
+      <button class="btn-talk" type="button" (click)="goTo('contact-form-web')">
+        {{ 'WHYME.CTA' | translate }}
+      </button>
+    </div>
   </div>
 </section>

@@ -1,19 +1,43 @@
 <header class="site-header">
   <div class="inner">
-    <div class="cluster" role="group" aria-label="Brand and main navigation">
-      <div class="logo">
-        <button class="brand" (click)="scrollTo('hero')" aria-label="Home">&lt;DK&gt;</button>
-      </div>
-      <nav class="nav" aria-label="Main">
-        <a (click)="scrollTo('why-me')">Why me</a>
-        <a (click)="scrollTo('skills')">Skills</a>
-        <a (click)="scrollTo('projects')">Projects</a>
-        <a (click)="scrollTo('contact')">Contact</a>
+    <div class="cluster">
+      <button class="brand" routerLink="/">&lt; DK &gt;</button>
+
+      <nav class="nav" aria-label="Primary">
+        <a routerLink="/" fragment="why-me">{{ 'HEADER.WHYME' | translate }}</a>
+        <a routerLink="/" fragment="skills">{{ 'HEADER.SKILLS' | translate }}</a>
+        <a routerLink="/" fragment="projects">{{ 'HEADER.PROJECTS' | translate }}</a>
+        <a routerLink="/" fragment="references">{{ 'HEADER.REFERENCES' | translate }}</a>
+        <a routerLink="/" fragment="contact">{{ 'HEADER.CONTACT' | translate }}</a>
       </nav>
     </div>
 
-    <div class="lang" aria-label="Language">
-      <button class="lang-btn">DE</button><span class="sep">|</span><button class="lang-btn">EN</button>
+    <div class="lang" aria-label="Language switch">
+      <button class="lang-btn" [class.active]="lang==='de'" (click)="setLang('de')" data-lang="de">DE</button>
+      <span class="sep">/</span>
+      <button class="lang-btn" [class.active]="lang==='en'" (click)="setLang('en')" data-lang="en">EN</button>
     </div>
+
+    <button class="burger" type="button" aria-label="Open menu" [attr.aria-expanded]="isOpen" (click)="toggleMenu()">
+      <img src="assets/img/header/burger menu.png" alt="" />
+    </button>
   </div>
 </header>
+
+<aside class="mobile" [class.is-open]="isOpen" role="dialog" aria-modal="true" aria-label="Mobile navigation">
+  <button class="close" type="button" aria-label="Close menu" (click)="closeMenu()">×</button>
+
+  <nav class="mobile__nav" aria-label="Mobile Primary">
+    <a routerLink="/" fragment="why-me" (click)="closeMenu()">{{ 'HEADER.WHYME' | translate }}</a>
+    <a routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'HEADER.SKILLS' | translate }}</a>
+    <a routerLink="/" fragment="projects" (click)="closeMenu()">{{ 'HEADER.PROJECTS' | translate }}</a>
+    <a routerLink="/" fragment="references" (click)="closeMenu()">{{ 'HEADER.REFERENCES' | translate }}</a>
+    <a routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a>
+  </nav>
+
+  <div class="mobile__lang">
+    <button class="lang-btn" [class.active]="lang==='de'" (click)="setLang('de'); closeMenu()">DE</button>
+    <span class="sep">/</span>
+    <button class="lang-btn" [class.active]="lang==='en'" (click)="setLang('en'); closeMenu()">EN</button>
+  </div>
+</aside>

@@ -1,107 +1,73 @@
-<section class="contact" aria-labelledby="contact-title">
-  <h2 id="contact-title" class="contact__headline">
-    {{ 'CONTACTFORM.HEADLINE' | translate }}
-  </h2>
+<section class="contact">
+  <h3 class="contact__headline">{{ 'CONTACTFORM.HEADLINE' | translate }}</h3>
 
-  <form #f="ngForm" class="contact__grid" (ngSubmit)="onSubmit(f)" novalidate>
-
-    <!-- NAME -->
-    <label class="field field--name">
-      <span class="field__box">
-        <input
-          class="field__control"
-          type="text"
-          name="name"
-          [(ngModel)]="data.name"
-          required
-          #name="ngModel"
-          autocomplete="name"
-          placeholder="{{ 'CONTACTFORM.NAME' | translate }}"
-        />
-        <span class="error-inline" *ngIf="f.submitted && name.invalid">
-          {{ 'CONTACTFORM.ERROR_NAME' | translate }} <i>!</i>
+  <form class="contact__grid" (ngSubmit)="onSubmit()" novalidate>
+    <!-- Name -->
+    <div class="field field--name">
+      <label class="sr-only" for="name">{{ 'CONTACTFORM.NAME' | translate }}</label>
+      <div class="field__box">
+        <input id="name" name="name" type="text" class="field__control" [placeholder]="'CONTACTFORM.NAME' | translate"
+          [(ngModel)]="model.name" required />
+        <span class="error-inline" *ngIf="errors.name">
+          <i>*</i> {{ errors.name | translate }}
         </span>
-      </span>
-    </label>
+      </div>
+    </div>
 
-    <!-- EMAIL -->
-    <label class="field field--email">
-      <span class="field__box">
-        <input
-          class="field__control"
-          type="email"
-          name="email"
-          [(ngModel)]="data.email"
-          required
-          email
-          #email="ngModel"
-          autocomplete="email"
-          placeholder="{{ 'CONTACTFORM.EMAIL' | translate }}"
-        />
-        <span class="error-inline" *ngIf="f.submitted && email.invalid">
-          {{ 'CONTACTFORM.ERROR_EMAIL' | translate }} <i>!</i>
+    <!-- Email -->
+    <div class="field field--email">
+      <label class="sr-only" for="email">{{ 'CONTACTFORM.EMAIL' | translate }}</label>
+      <div class="field__box">
+        <input id="email" name="email" type="email" class="field__control"
+          [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" required />
+        <span class="error-inline" *ngIf="errors.email">
+          <i>*</i> {{ errors.email | translate }}
         </span>
-      </span>
-    </label>
+      </div>
+    </div>
 
-    <!-- MESSAGE -->
-    <label class="field field--message">
-      <span class="field__box">
-        <textarea
-          class="field__control"
-          name="message"
-          [(ngModel)]="data.message"
-          required
-          #msg="ngModel"
-          rows="6"
-          placeholder="{{ 'CONTACTFORM.MESSAGE' | translate }}"
-        ></textarea>
-        <span class="error-inline" *ngIf="f.submitted && msg.invalid">
-          {{ 'CONTACTFORM.ERROR_MESSAGE' | translate }} <i>!</i>
+    <!-- Message -->
+    <div class="field field--message">
+      <label class="sr-only" for="message">{{ 'CONTACTFORM.MESSAGE' | translate }}</label>
+      <div class="field__box">
+        <textarea id="message" name="message" class="field__control" [placeholder]="'CONTACTFORM.MESSAGE' | translate"
+          [(ngModel)]="model.message" required></textarea>
+        <span class="error-inline" *ngIf="errors.message">
+          <i>*</i> {{ errors.message | translate }}
         </span>
-      </span>
-    </label>
+      </div>
+    </div>
 
-    <!-- PRIVACY CHECKBOX -->
+    <!-- Consent -->
     <div class="consent">
       <label class="check">
-        <input
-          class="check__control"
-          type="checkbox"
-          name="privacy"
-          [(ngModel)]="data.privacy"
-          required
-          #privacy="ngModel"
-        />
-        <span class="check__text">
+        <input class="check__control" type="checkbox" [(ngModel)]="accepted" name="accepted"
+          (change)="onAcceptChange()" />
+        <span>
           {{ 'CONTACTFORM.PRIVACY' | translate }}
-          <a class="check__link" href="/privacy" target="_blank" rel="noopener">
+          <a class="check__link" routerLink="/legal/privacy">
             {{ 'CONTACTFORM.PRIVACY_LINK' | translate }}
           </a>
           {{ 'CONTACTFORM.PRIVACY_AGREE' | translate }}
         </span>
       </label>
 
-      <span class="error-inline error-inline--below" *ngIf="f.submitted && privacy.invalid">
-        {{ 'CONTACTFORM.ERROR_PRIVACY' | translate }} <i>!</i>
-      </span>
+      <div class="error-inline error-inline--below" *ngIf="errors.accepted">
+        <i>*</i> {{ errors.accepted | translate }}
+      </div>
     </div>
 
-    <!-- SUBMIT -->
-    <button
-      class="send-btn"
-      type="submit"
-      [disabled]="sending"
-      [class.is-accepted]="privacy?.valid"
-    >
-      {{
-        sending
-          ? ('CONTACTFORM.SENDING' | translate)
-          : (sent
-              ? ('CONTACTFORM.SENT' | translate)
-              : ('CONTACTFORM.SUBMIT' | translate))
-      }}
-    </button>
+    <!-- Send + (ng-content) für Mobile-Pfeil -->
+    <div class="field">
+      <div class="contact__button-wrap">
+        <button type="submit" class="send-btn" [disabled]="!accepted || isSending"
+          [ngClass]="{ 'is-accepted': accepted }">
+          {{ isSending ? ('CONTACTFORM.SENDING' | translate) : ('CONTACTFORM.SUBMIT' | translate) }}
+        </button>
 
+        <!-- Mobile-Pfeil via Parent -->
+        <ng-content></ng-content>
+      </div>
+    </div>
   </form>
 </section>

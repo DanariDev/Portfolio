@@ -1,10 +1,9 @@
 :host {
-  display: contents;  
+  display: contents;
 }
-
 
 .page-wrap {
   flex: 1 1 auto;
-  min-height: 0;
+  min-height: min(100dvh, 100%);
   display: block;
 }

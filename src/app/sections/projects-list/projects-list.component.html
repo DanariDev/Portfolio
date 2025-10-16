@@ -1,6 +1,7 @@
-<section class="projects" aria-label="Projects">
+<section id="projects-list" class="projects" aria-label="Projects">
   <div class="projects__box" *ngFor="let p of projects; let i = index; trackBy: trackById"
-    [class.projects__box--reverse]="isReverse(i)" [attr.data-id]="p.id">
+       [class.projects__box--reverse]="isReverse(i)" [attr.data-id]="p.id">
+
     <figure class="project__media" [class.media--contain]="p.fit === 'contain'" [attr.data-focus]="p.focus || null">
       <img [src]="p.img" [alt]="p.title" loading="lazy" />
     </figure>
@@ -15,8 +16,7 @@
         <p class="project__desc">{{ p.desc }}</p>
 
         <div class="project__buttons">
-          <a *ngIf="p.links?.github" class="btn btn--ghost" [attr.href]="p.links?.github" target="_blank"
-            rel="noopener">
+          <a *ngIf="p.links?.github" class="btn btn--ghost" [attr.href]="p.links?.github" target="_blank" rel="noopener">
             {{ 'PROJECTS.BUTTONS.GITHUB' | translate }}
           </a>
 

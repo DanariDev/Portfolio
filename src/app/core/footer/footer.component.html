@@ -1,10 +1,30 @@
 <footer class="site-footer">
   <div class="inner">
-    <nav class="footer-nav">
-      <a routerLink="/legal" routerLinkActive="active">{{ 'FOOTER.LEGAL' | translate }}</a>
-      <a routerLink="/privacy" routerLinkActive="active">{{ 'FOOTER.PRIVACY' | translate }}</a>
-    </nav>
-    <small>© {{ year }} Daniel Kwiatkowski</small>
+
+    <div class="top-row">
+      <div class="left">
+        <button class="brand" (click)="scrollTop()" aria-label="Home">&lt;DK&gt;</button>
+        <span class="subline">frontend developer</span>
+      </div>
+
+      <div class="center">
+        <p class="copyright">&copy; {{ year }} Daniel Kwiatkowski</p>
+      </div>
+
+      <div class="right" role="group" aria-label="Social links">
+        <a class="icon github"   href="https://github.com/" target="_blank" rel="noopener" aria-label="GitHub"></a>
+        <a class="icon mail"     href="mailto:danielkwiatkowski@gmx.de" aria-label="E-Mail"></a>
+        <a class="icon linkedin" href="https://www.linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn"></a>
+      </div>
+    </div>
+
+    <div class="bottom-row">
+      <nav class="legal" aria-label="Legal">
+        <a class="legal-btn" routerLink="/legal">{{ 'FOOTER.LEGAL' | translate }}</a>
+        <span class="sep">|</span>
+        <a class="legal-btn" routerLink="/privacy">{{ 'FOOTER.PRIVACY' | translate }}</a>
+      </nav>
+    </div>
 
   </div>
 </footer>

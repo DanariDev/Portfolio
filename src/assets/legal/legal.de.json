@@ -5,53 +5,53 @@
     {
       "heading": "Impressum",
       "paragraphs": [
-        "[Namen der Studierenden]",
-        "[Adresse des JOIN-Betreibers – z. B. einer der Studierenden]",
-        "[Postleitzahl und Stadt]"
+        "Daniel Kwiatkowski",
+        "Straße 180 41a",
+        "13127 Berlin"
       ]
     },
     {
-      "heading": "Exploring the Board",
+      "heading": "Kontakt",
       "paragraphs": [
-        "E-Mail: [E-Mail-Adresse]"
+        "E-Mail: danielkwiatkowski@gmx.de"
       ]
     },
     {
-      "heading": "Acceptance of terms",
+      "heading": "Nutzungsbedingungen",
       "paragraphs": [
-        "By accessing and using Portfolio (Product), you acknowledge and agree to the following terms and conditions, and any policies, guidelines, or amendments thereto that may be presented to you from time to time. We, the listed students, may update or change the terms and conditions from time to time without notice."
+        "Durch den Zugriff auf und die Nutzung von Portfolio (nachfolgend „Produkt“) erkennen Sie die nachfolgenden Bedingungen sowie alle zugehörigen Richtlinien, Hinweise oder Änderungen, die von Zeit zu Zeit ohne vorherige Ankündigung erfolgen können, an. Wir, die oben genannte verantwortliche Person, behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern oder zu ergänzen."
       ]
     },
     {
-      "heading": "Scope and ownership of the product",
+      "heading": "Zweck und Eigentum des Produkts",
       "paragraphs": [
-        "Portfolio has been developed as part of a student group project in a web development bootcamp at the Developer Akademie GmbH. It has an educational purpose and is not intended for extensive personal & business usage. As such, we cannot guarantee consistent availability, reliability, accuracy, or any other aspect of quality regarding this Product.",
-        "The design of Portfolio is owned by the Developer Akademie GmbH. Unauthorized use, reproduction, modification, distribution, or replication of the design is strictly prohibited."
+        "Portfolio wurde im Rahmen eines studentischen Projekts an der Developer Akademie GmbH entwickelt. Es dient ausschließlich Ausbildungszwecken und ist nicht für den dauerhaften privaten oder geschäftlichen Gebrauch bestimmt. Daher kann keine Gewähr für Verfügbarkeit, Zuverlässigkeit, Genauigkeit oder sonstige Qualitätsmerkmale dieses Produkts übernommen werden.",
+        "Das Design von Portfolio ist Eigentum der Developer Akademie GmbH. Eine unbefugte Nutzung, Vervielfältigung, Veränderung, Verbreitung oder Nachbildung des Designs ist strengstens untersagt."
       ]
     },
     {
-      "heading": "Proprietary rights",
+      "heading": "Urheberrechte",
       "paragraphs": [
-        "Aside from the design owned by Developer Akademie GmbH, we, the listed students, retain all proprietary rights in Portfolio, including any associated copyrighted material, trademarks, and other proprietary information."
+        "Abgesehen vom Design, das der Developer Akademie GmbH gehört, liegen sämtliche Urheber- und Schutzrechte an Portfolio bei der oben genannten verantwortlichen Person. Dies umfasst alle urheberrechtlich geschützten Materialien, Marken und sonstigen Eigentumsinformationen."
       ]
     },
     {
-      "heading": "Use of the product",
+      "heading": "Verwendung des Produkts",
       "paragraphs": [
-        "Portfolio is intended to be used for lawful purposes only, in accordance with all applicable laws and regulations. Any use of Portfolio for illegal activities, or to harass, harm, threaten, or intimidate another person, is strictly prohibited. You are solely responsible for your interactions with other users of Portfolio."
+        "Portfolio darf ausschließlich für rechtmäßige Zwecke und in Übereinstimmung mit allen geltenden Gesetzen und Vorschriften verwendet werden. Jegliche Nutzung zu illegalen Zwecken oder zur Belästigung, Schädigung, Bedrohung oder Einschüchterung anderer Personen ist strengstens untersagt. Für Interaktionen mit anderen Nutzern von Portfolio sind ausschließlich Sie selbst verantwortlich."
       ]
     },
     {
-      "heading": "Disclaimer of warranties and limitation of liability",
+      "heading": "Haftungsausschluss",
       "paragraphs": [
-        "Portfolio is provided \"as is\" without warranty of any kind, whether express or implied, including but not limited to the implied warranties of merchantability, fitness for a particular purpose, and non-infringement. In no event will we, the listed students, or the Developer Akademie, be liable for any direct, indirect, incidental, special, consequential or exemplary damages, including but not limited to, damages for loss of profits, goodwill, use, data, or other intangible losses, even if we have been advised of the possibility of such damages, arising out of or in connection with the use or performance of Portfolio."
+        "Portfolio wird „wie besehen“ bereitgestellt, ohne jegliche ausdrückliche oder stillschweigende Garantie, einschließlich, aber nicht beschränkt auf die stillschweigenden Garantien der Marktgängigkeit, Eignung für einen bestimmten Zweck und Nichtverletzung von Rechten Dritter. In keinem Fall haften wir oder die Developer Akademie GmbH für direkte, indirekte, zufällige, besondere oder Folgeschäden – einschließlich, aber nicht beschränkt auf entgangenen Gewinn, Verlust von Daten oder Goodwill –, die sich aus der Nutzung oder der Unmöglichkeit der Nutzung von Portfolio ergeben."
       ]
     },
     {
-      "heading": "Indemnity",
+      "heading": "Freistellung",
       "paragraphs": [
-        "You agree to indemnify, defend and hold harmless us, the listed students, the Developer Akademie, and our affiliates, partners, officers, directors, agents, and employees, from and against any claim, demand, loss, damage, cost, or liability (including reasonable legal fees) arising out of or relating to your use of Portfolio and/or your breach of this Legal Notice.",
-        "For any questions or notices, please contact us at [Contact Email]."
+        "Sie erklären sich damit einverstanden, uns, die Developer Akademie GmbH sowie unsere Partner, Vertreter und Mitarbeitenden von sämtlichen Ansprüchen, Verlusten, Schäden, Kosten oder Haftungen (einschließlich angemessener Anwaltskosten) freizustellen, die sich aus Ihrer Nutzung von Portfolio und/oder einem Verstoß gegen diesen rechtlichen Hinweis ergeben.",
+        "Für Fragen oder Mitteilungen kontaktieren Sie uns bitte unter: danielkwiatkowski@gmx.de"
       ]
     }
   ]

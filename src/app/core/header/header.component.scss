@@ -1,103 +1,115 @@
-/* Header: 1440 x 92 innen, BG #120B35 */
-/* Fonts: Handjet fürs Logo, Roboto Mono für Nav/Language, Poppins für Trenner */
 @import url("https://fonts.googleapis.com/css2?family=Handjet:wght@400&family=Roboto+Mono:wght@400;700&family=Poppins:wght@400&display=swap");
 
-/* Balken vollbreit, Inhalt zentriert */
+:root {
+  --header-h: 92px;
+}
+
 .site-header {
   background: #120b35;
-  position: sticky;
+  position: fixed;
   top: 0;
-  z-index: 50;
+  left: 0;
+  right: 0;
+  z-index: 1000;
   display: flex;
   justify-content: center;
-
-  /* Farben für Links/Hover */
   --nav-link: #e15544;
   --nav-link-hover: #02f4bf;
 }
 
-/* Innenfläche exakt 1440 x 92 mit 24/140 Padding */
 .inner {
-  width: 1440px;
-  height: 92px;
+  width: min(100%, 1440px);
+  height: var(--header-h);
   box-sizing: border-box;
-  padding: 24px 140px;
+  padding: min(24px, 3vh) min(9.7vw, 140px);
   display: grid;
-  grid-template-columns: auto 1fr; /* Cluster | Language rechts */
+  grid-template-columns: auto 1fr;
   align-items: center;
 }
 
-/* Cluster (Logo + Nav) exakt 636 x 44 */
 .cluster {
-  width: 636px;
+  width: min(100%, 636px);
   height: 44px;
   display: flex;
   align-items: center;
-  gap: 48px; /* 92 (Logo) + 48 + 496 (Nav) = 636 */
+  gap: min(5vw, 48px);
+  flex-wrap: nowrap;
+  min-width: 0;
 }
 
-/* Logo "<DK>" – 92 x 44, Handjet 48/400, 5% LS, kein Border */
 .brand {
-  width: 92px;
   height: 44px;
   min-width: 92px;
-  line-height: 44px; /* vertikal mittig */
+  line-height: 44px;
   text-align: center;
   cursor: pointer;
   background: transparent;
   border: none;
   color: #e15544;
-
-  font-family: "Handjet", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Handjet", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
   font-weight: 400;
-  font-size: 48px;
-  letter-spacing: 0.05em; /* 5% */
+  letter-spacing: 0.05em;
   text-transform: uppercase;
+  white-space: nowrap;
+  width: auto;
+  font-size: clamp(36px, 7vw, 44px);
 }
 
-/* Main-Navigation im Cluster – 4 Links à 100 x 26, Gap 32 */
 .nav {
   display: flex;
   align-items: center;
-  gap: 32px;     /* Figma-Gap zwischen Links */
-  width: 496px;  /* 4*100 + 3*32 */
-  height: 44px;  /* sitzt mittig zum Cluster */
+  gap: min(4vw, 32px);
+  width: min(100%, 496px);
+  height: 44px;
+  flex-wrap: nowrap;
+  min-width: 0;
+
+  a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 26px;
+    text-decoration: none;
+    color: var(--nav-link);
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+      Consolas, "Liberation Mono", "Courier New", monospace;
+    font-weight: 400;
+    font-size: min(4vw, 18px);
+    line-height: 26px;
+    transition: color 0.25s ease;
+    white-space: nowrap;
+    width: auto;
+    min-width: 100px;
+
+    &:hover,
+    &:focus-visible {
+      color: var(--nav-link-hover);
+      outline: none;
+      background: transparent;
+    }
+
+    &:active,
+    &.active,
+    &[aria-current="page"] {
+      color: var(--nav-link-hover);
+      text-decoration: underline;
+      text-decoration-color: var(--nav-link-hover);
+      text-decoration-thickness: 2px;
+      text-underline-offset: 8px;
+    }
+  }
 }
 
-.nav a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100px;          /* Fixed(100px) */
-  height: 26px;          /* Fixed(26px) */
-  text-decoration: none;
-  color: var(--nav-link);
-  background: transparent;
-  border-radius: 6px;    /* weich – bei Bedarf auf 0 */
-  cursor: pointer;
-
-  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-weight: 400;
-  font-size: 18px;       /* passt in 26px Höhe */
-  line-height: 26px;     /* exakt mittig */
-
-  transition: color .3s ease-out;
-}
-
-.nav a:hover,
-.nav a:focus-visible {
-  color: var(--nav-link-hover); /* #02F4BF */
-  outline: none;
-  background: transparent;
-}
-
-/* Language rechts – Roboto Mono 700/18, Hover #02F4BF */
 .lang {
   justify-self: end;
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  color: #e15544; /* Grundfarbe */
+  gap: min(2vw, 12px);
+  color: #e15544;
 }
 
 .lang-btn {
@@ -105,30 +117,173 @@
   border: 0;
   padding: 0;
   cursor: pointer;
-
-  font-family: 'Roboto Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
-  font-weight: 700;  /* Bold */
-  font-size: 18px;
-  line-height: 25px; /* ~140% */
-  letter-spacing: 0;
+  font-family: "Roboto Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  font-weight: 700;
+  font-size: min(4vw, 18px);
+  line-height: 25px;
   color: #e15544;
+  transition: color 0.25s ease;
 
-  transition: color .3s ease-out;
+  &:hover,
+  &:focus-visible {
+    color: var(--nav-link-hover);
+    outline: none;
+  }
 }
 
-.lang-btn:hover,
-.lang-btn:focus-visible {
+.lang-btn.active,
+html[lang="de"] .lang-btn[data-lang="de"],
+html[lang="en"] .lang-btn[data-lang="en"] {
   color: var(--nav-link-hover);
-  outline: none;
+  text-decoration: underline;
+  text-decoration-color: var(--nav-link-hover);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 6px;
+  pointer-events: none;
 }
 
-/* Trenner "|" – Poppins 400/18, 120% LH */
 .sep {
-  font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Poppins", system-ui, -apple-system, Segoe UI, Roboto, Arial,
+    sans-serif;
   font-weight: 400;
-  font-size: 18px;
-  line-height: 22px; /* 120% */
+  font-size: min(4vw, 18px);
+  line-height: 22px;
   color: #e15544;
   user-select: none;
   pointer-events: none;
+}
+
+.burger {
+  display: none;
+}
+
+@media (max-width: 1099px) {
+  .nav,
+  .lang {
+    display: none;
+  }
+
+  .burger {
+    position: absolute;
+    right: min(9.7vw, 140px);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 24px;
+    display: inline-flex;
+    background: transparent;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+  }
+}
+
+.mobile {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(180deg, #120b35 0%, #241b72 100%);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-8px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+  padding: 24px min(9.7vw, 140px) 48px;
+  z-index: 1200;
+
+  &.is-open {
+    opacity: 1;
+    transform: none;
+    pointer-events: auto;
+  }
+
+  .close {
+    justify-self: end;
+    background: transparent;
+    border: 0;
+    font-size: 40px;
+    line-height: 1;
+    color: #e15544;
+    cursor: pointer;
+
+    &:hover,
+    &:focus-visible {
+      color: #02f4bf;
+      outline: none;
+    }
+  }
+
+  .mobile__nav {
+    align-self: center;
+    display: grid;
+    gap: 28px;
+    justify-items: center;
+
+    a {
+      text-decoration: none;
+      color: #e15544;
+      font-family: "Roboto Mono", monospace;
+      font-size: clamp(18px, 2.6vw, 24px);
+      transition: color 0.25s ease;
+
+      &:hover,
+      &:focus-visible {
+        color: #02f4bf;
+        outline: none;
+      }
+    }
+  }
+
+  .mobile__lang {
+    justify-self: center;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #e15544;
+
+    .lang-btn {
+      background: transparent;
+      border: 0;
+      padding: 0;
+      cursor: pointer;
+      font-family: "Roboto Mono", monospace;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 25px;
+      color: #e15544;
+      transition: color 0.25s ease;
+
+      &:hover,
+      &:focus-visible {
+        color: #02f4bf;
+        outline: none;
+      }
+
+      &.active {
+        color: #02f4bf;
+        text-decoration: underline;
+        text-underline-offset: 6px;
+        text-decoration-thickness: 2px;
+        pointer-events: none;
+      }
+    }
+
+    .sep {
+      font-family: "Poppins", sans-serif;
+      font-size: 18px;
+    }
+  }
+}
+
+html.menu-open,
+body.menu-open {
+  overflow: hidden;
 }

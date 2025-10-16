@@ -8,8 +8,12 @@ import { TranslateModule } from '@ngx-translate/core';
   standalone: true,
   imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.scss']
+  styleUrls: ['./footer.component.scss'],
 })
 export class FooterComponent {
   year = new Date().getFullYear();
+
+  scrollTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 }

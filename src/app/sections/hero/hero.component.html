@@ -1,22 +1,20 @@
-<section id="hero" class="hero">
+<section id="hero" class="hero" aria-labelledby="hero-title">
   <div class="hero_box">
-
     <div class="hero__arrow">
-      <a href="#anchor1" (click)="scrollDown(); $event.preventDefault()" aria-label="Scroll down">
+      <a href="#why-me-title" (click)="goTo('why-me-title'); $event.preventDefault()" aria-label="Scroll to Why me">
         <img src="assets/img/Arrow.down.png" alt="">
       </a>
     </div>
 
-    <button id="contact_me" class="contact_me">CONTACT ME</button>
+    <button class="contact_me" (click)="goTo('contact-title')" aria-label="Contact me">CONTACT ME</button>
 
     <div class="hero__intro">
-      <h2 class="job-title">FRONTEND DEVELOPER</h2>
+      <h2 id="hero-title" class="job-title">FRONTEND DEVELOPER</h2>
       <h3 class="name">Daniel Kwiatkowski</h3>
     </div>
 
     <div class="hero__image">
       <img src="../../../assets/img/Daniel_Profil_1.jpg" alt="Profilbild Daniel Kwiatkowski">
     </div>
-
   </div>
 </section>

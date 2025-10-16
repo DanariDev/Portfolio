@@ -1,12 +1,19 @@
 {
+  "HEADER": {
+  "WHYME": "Why me",
+  "SKILLS": "Skills",
+  "PROJECTS": "Projects",
+  "REFERENCES": "References",
+  "CONTACT": "Contact"
+},
   "WHYME": {
     "TITLE": "Why me",
     "COPY": "I solve complex frontend tasks with clean code and clear structure. User-friendly, pragmatic, modern—and always quick to find practical solutions.",
     "CTA": "Let’s talk",
     "IAM": "I am",
     "LOCATED": "in Berlin",
-    "REMOTE": "open to remote work",
-    "RELOCATE": "open to relocate"
+    "REMOTE": "open to <br> remote work",
+    "RELOCATE": "open to <br> relocate"
   },
   "SKILLS": {
     "TITLE": "My Skills",
@@ -21,10 +28,10 @@
         "title": "Join",
         "tech": "Angular | TypeScript | HTML | CSS | Firebase",
         "desc": "Task manager inspired by the Kanban System. Create and organize tasks with drag & drop, assign users and categories.",
-        "img": "assets/img/projects/join.jpg",
+        "img": "assets/img/projects/join.png",
         "links": {
-          "github": "https://github.com/DEIN-USER/join",
-          "live": "https://join.deine-subdomain.tld"
+         "github": "https://github.com/DanariDev/Join002",
+          "live": "https://join.daniel-kwiatkowski-portfolio.com/"
         }
       },
       {
@@ -32,10 +39,10 @@
         "title": "Pollo Loco",
         "tech": "JavaScript | HTML | CSS",
         "desc": "Jump, run and throw game based on OOP. Help Pepe find coins and salsa to beat the crazy hen.",
-        "img": "assets/img/projects/pollo-loco.jpg",
+        "img": "assets/img/projects/pollo-loco.png",
         "links": {
-          "github": "https://github.com/DEIN-USER/pollo-loco",
-          "live": "https://pollo.deine-subdomain.tld"
+          "github": "https://github.com/DanariDev/El-Pollo-Loco",
+          "live": "https://el-pollo-loco.daniel-kwiatkowski-portfolio.com/"
         }
       }
     ],
@@ -49,25 +56,25 @@
     "HEADLINE": "Need a team player? Here’s what my colleagues say about me.",
     "ITEMS": [
       {
-        "name": "Noah Mueller",
+        "name": "Stefan",
         "project": "Join",
-        "text": "Marcus had to develop, format and deliver content with the team. He is a reliable and friendly person."
+        "text": "I got to know Daniel as a friendly and calm person. With his experience as a developer, he presented a variety of creative solutions and integrated well into the team. Collaboration was always smooth and well-coordinated."
       },
       {
-        "name": "Evelyn Marx",
+        "name": "Leonard",
         "project": "Join",
-        "text": "He is a trustworthy team player and can cope with deadlines. Structured work and clear code."
+        "text": "He is a trustworthy team player and handles time pressure well. Structured work and clean code."
       },
       {
-        "name": "James Rugman",
-        "project": "Join",
-        "text": "Reliable and friendly. Works in a structured way and writes clear code. I recommend him as a colleague."
+        "name": "Peter",
+        "project": "Kochwelt",
+        "text": "Reliable and friendly. Works in a structured way and writes clear code. A clear recommendation as a colleague."
       }
     ]
   },
 
   "CONTACT": {
-    "TITLE": "Contact me",
+    "TITLE": "Contact ",
     "INTRO": "I am open to new opportunities and eager to contribute my skills and creativity to exciting projects. Feel free to reach out if you are looking for a motivated addition to your team.",
     "EMAIL_LABEL": "E-mail:",
     "EMAIL_VALUE": "danielkwiatkowski@gmx.de",
@@ -94,16 +101,14 @@
     "ERROR_PRIVACY": "You must accept the privacy policy"
   },
 
-
-
-
-
-
+  "NAV": {
+    "WHY_ME": "Why me",
+    "SKILLS": "Skills",
+    "PROJECTS": "Projects",
+    "CONTACT": "Contact"
+  },
   "FOOTER": {
-  "LEGAL": "Legal Notice",
-  "PRIVACY": "Privacy Policy"
+    "LEGAL": "Legal Notice",
+    "PRIVACY": "Privacy Policy"
+  }
 }
-}
-
-
-

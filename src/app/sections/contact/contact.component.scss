@@ -3,32 +3,45 @@
   --neon: #02f4bf;
   --mono: "Roboto Mono", monospace;
   --arrow-h: 44px;
-  --toTop-x: 98%;
-  --toTop-y: 46%;
+  --toTop-offset-x: 8px;
+  --toTop-pos-y: 46%;
 }
 
-/* SECTION */
+.d-only {
+  display: inline-flex;
+}
+.m-only {
+  display: none;
+}
+@media (max-width: 1150px) {
+  .d-only {
+    display: none !important;
+  }
+  .m-only {
+    display: inline-flex !important;
+  }
+}
+
 .contact {
   width: 100%;
   padding: 32px 0 36px;
 
   .contact__inner {
-    width: 1224px;
+    width: min(100%, 1224px);
     margin: 0 auto;
     position: relative;
     display: grid;
     grid-template-columns: 560px 1fr;
     grid-template-areas: "left right";
-    column-gap: 48px;
+    column-gap: min(5vw, 48px);
   }
 
-  /* LEFT */
   .contact__left {
     grid-area: left;
     align-self: start;
 
     .contact__header {
-      width: 425.05px;
+      width: min(100%, 440px);
       height: 72.21px;
       overflow: hidden;
       display: grid;
@@ -41,7 +54,7 @@
       margin: 0;
       font-family: var(--mono);
       font-weight: 500;
-      font-size: 54px;
+      font-size: min(8vw, 54px);
       line-height: 120%;
       color: var(--accent);
       white-space: nowrap;
@@ -49,51 +62,73 @@
     }
 
     .contact__arrow {
-      position: static;
       height: var(--arrow-h);
       width: auto;
       display: block;
-      transform: none;
-      pointer-events: none;
       margin-bottom: 2px;
+      pointer-events: none;
     }
 
     .contact__intro {
       margin: 13px 0 0 2px;
-      max-width: 504px;
+      max-width: min(100%, 504px);
       min-height: 73px;
       font-family: var(--mono);
       font-weight: 400;
-      font-size: 18px;
+      font-size: min(4.5vw, 18px);
       line-height: 120%;
       text-align: justify;
       color: var(--neon);
     }
   }
 
-  /* RIGHT */
   .contact__right {
     grid-area: right;
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: min(3vw, 12px);
     justify-content: center;
     min-height: 0;
+    position: relative;
+
+    .contact__to-top.d-only {
+      position: absolute;
+      top: var(--toTop-pos-y);
+      right: calc(-1 * var(--toTop-offset-x));
+      transform: translate(100%, -50%);
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 4px;
+      border: 1px solid transparent;
+      transition: border-color 0.3s ease-out;
+      cursor: pointer;
+
+      img {
+        width: 20px;
+        height: auto;
+        display: block;
+        transition: filter 0.3s ease-out;
+      }
+
+      &:hover,
+      &:focus-visible {
+        border-color: #02f4bf;
+        img {
+          filter: brightness(0) saturate(100%) invert(78%) sepia(35%)
+            saturate(749%) hue-rotate(109deg) brightness(98%) contrast(95%);
+        }
+      }
+    }
   }
 
-  /* ITEM + ICON-SWAP */
   .contact__item {
     display: grid;
     grid-template-columns: 24px auto 1fr;
     align-items: center;
-    column-gap: 12px;
+    column-gap: min(3vw, 12px);
     font-family: var(--mono);
     color: var(--neon);
-    cursor: pointer;
-
-    &:focus-within {
-      outline: none;
-    }
 
     .contact__icon {
       width: 24px;
@@ -101,28 +136,24 @@
       display: block;
       transition: 0.2s ease-out;
     }
-
     .contact__label {
       font-weight: 700;
-      font-size: 18px;
+      font-size: min(4.5vw, 18px);
     }
-
     .contact__value {
-      font-size: 18px;
+      font-size: min(4.5vw, 18px);
       color: var(--neon);
       text-decoration: none;
       transition: color 0.2s ease;
-
       &:hover,
       &:focus-visible {
-        color: var(--neon); // Text bleibt gleich – kein Hover-Farbwechsel
+        color: var(--neon);
         text-decoration: none;
         outline: none;
       }
     }
   }
 
-  /* Mail: Icon tauschen bei Hover/Focus */
   .contact__mail {
     &:hover .contact__icon,
     &:focus-within .contact__icon {
@@ -130,43 +161,10 @@
     }
   }
 
-  /* Phone: Icon tauschen bei Hover/Focus */
   .contact__phone {
     &:hover .contact__icon,
     &:focus-within .contact__icon {
       content: url("/assets/img/contact/phone-hover.png");
-    }
-  }
-
-  /* TO TOP – Position bleibt exakt gleich */
-  .contact__to-top {
-    position: absolute;
-    left: var(--toTop-x);
-    top: var(--toTop-y);
-    transform: translate(-50%, -50%);
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    padding: 4px;
-    border: 1px solid transparent;
-    transition: border-color 0.3s ease-out;
-    cursor: pointer;
-
-    img {
-      width: 20px;
-      height: auto;
-      display: block;
-      transition: filter 0.3s ease-out;
-    }
-
-    &:hover,
-    &:focus-visible {
-      border-color: #02f4bf;
-
-      img {
-        filter: brightness(0) saturate(100%) invert(78%) sepia(35%)
-          saturate(749%) hue-rotate(109deg) brightness(98%) contrast(95%);
-      }
     }
   }
 
@@ -176,6 +174,44 @@
     .contact__to-top,
     .contact__to-top img {
       transition: none;
+    }
+  }
+
+  @media (max-width: 1150px) {
+    .contact__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: clamp(16px, 4vw, 28px);
+      text-align: center;
+    }
+
+    .contact__left {
+      width: 100%;
+      text-align: center;
+    }
+
+    .contact__left .contact__header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr;
+      justify-items: center;
+    }
+    .contact__left .contact__arrow {
+      display: none;
+    }
+    .contact__left .contact__title {
+      white-space: normal;
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      width: min(100%, 720px);
+    }
+
+    .contact__left .contact__intro {
+      text-align: center;
+      margin: clamp(10px, 3vw, 20px) auto 0;
+      max-width: 680px;
     }
   }
 }

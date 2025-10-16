@@ -1,34 +1,52 @@
-import { Component, OnDestroy, OnInit, inject, signal } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { TranslateService } from '@ngx-translate/core';
-import { Subscription } from 'rxjs';
+import {
+  TranslateModule,
+  TranslateService,
+  LangChangeEvent,
+} from '@ngx-translate/core';
 
 type Section = { id: string; heading: string; paragraphs: string[] };
-type PrivacyDoc = { title: string; updated?: string; sections: Section[] };
+type Doc = { title: string; updated?: string; sections: Section[] };
 
 @Component({
-  standalone: true,
   selector: 'app-privacy',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, TranslateModule],
   templateUrl: './privacy.component.html',
-  styleUrls: ['./privacy.component.scss'],
+  styleUrl: './privacy.component.scss',
+  encapsulation: ViewEncapsulation.Emulated,
 })
-export class PrivacyComponent implements OnInit, OnDestroy {
-  private http = inject(HttpClient);
-  private i18n = inject(TranslateService);
+export class PrivacyComponent {
+  doc: Doc | null = null;
 
-  doc = signal<PrivacyDoc | null>(null);
-  private sub?: Subscription;
+  constructor(private http: HttpClient, private t: TranslateService) {
+    const init = this.normalize(
+      this.t.currentLang || this.t.getDefaultLang() || 'de'
+    );
+    this.load(init);
 
-  ngOnInit(): void {
-    this.load(this.i18n.currentLang || this.i18n.getDefaultLang() || 'de');
-    this.sub = this.i18n.onLangChange.subscribe(e => this.load(e.lang));
+    this.t.onLangChange.subscribe((e: LangChangeEvent) => {
+      this.load(this.normalize(e.lang));
+    });
   }
-  ngOnDestroy(): void { this.sub?.unsubscribe(); }
 
-  private load(lang: string) {
-    const file = lang.startsWith('de') ? 'privacy.de.json' : 'privacy.en.json';
-    this.http.get<PrivacyDoc>(`assets/privacy/${file}`).subscribe(this.doc.set);
+  private normalize(lang: string): 'de' | 'en' {
+    const l = (lang || '').toLowerCase();
+    return l.startsWith('de') ? 'de' : 'en';
+  }
+
+  private load(lang: 'de' | 'en') {
+    const url = `assets/privacy/privacy.${lang}.json?v=${Date.now()}`;
+    this.http.get<Doc>(url).subscribe({
+      next: (d) => (this.doc = d),
+      error: () => {
+        this.doc = {
+          title: lang === 'de' ? 'Datenschutz' : 'Privacy Policy',
+          sections: [],
+        };
+      },
+    });
   }
 }

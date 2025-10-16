@@ -3,14 +3,12 @@
 }
 
 .projects-headline-wrap {
-  width: 1439px;          
-  height: 65px;           
-  margin: 120px auto 0;  
+  width: min(100%, 1439px);
+  height: 65px;
+  margin: 120px auto 0;
   box-sizing: border-box;
-
-  padding-left: 541px;
-  padding-right: 541px;
-
+  padding-left: min(9.7vw, 541px);
+  padding-right: min(9.7vw, 541px);
   display: flex;
   gap: 10px;
 }
@@ -26,13 +24,11 @@
 
 .projects-headline__title {
   margin-bottom: 160px;
-
   font-family: "Roboto Mono", monospace;
   font-weight: 500;
-  font-size: 54px;
+  font-size: min(8vw, 54px);
   line-height: 120%;
   letter-spacing: 0;
   color: #E15544;
-  white-space: nowrap;  
+  white-space: nowrap;
 }
-

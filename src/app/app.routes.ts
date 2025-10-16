@@ -1,10 +1,16 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
-
-  // Datenschutz
+  {
+    path: '',
+    loadComponent: () =>
+      import('./pages/home/home.component').then((m) => m.HomeComponent),
+  },
+  {
+    path: 'legal',
+    loadComponent: () =>
+      import('./pages/legal/legal.component').then((m) => m.LegalComponent),
+  },
   {
     path: 'privacy',
     loadComponent: () =>
@@ -12,15 +18,8 @@ export const routes: Routes = [
         (m) => m.PrivacyComponent
       ),
   },
-
-  // Impressum
   {
-    path: 'legal',
-    loadComponent: () =>
-      import('./pages/legal/legal.component').then(
-        (m) => m.LegalComponent
-      ),
+    path: '**',
+    redirectTo: '',
   },
-
-  { path: '**', redirectTo: '' },
 ];

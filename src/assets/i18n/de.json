@@ -1,4 +1,11 @@
 {
+"HEADER": {
+  "WHYME": "Warum ich",
+  "SKILLS": "Fähigkeiten",
+  "PROJECTS": "Projekte",
+  "REFERENCES": "Referenzen",
+  "CONTACT": "Kontakt"
+},
   "WHYME": {
     "TITLE": "Warum ich",
     "COPY": "Ich löse komplexe Frontend-Aufgaben mit sauberem Code und klaren Strukturen. Nutzerfreundlich, pragmatisch, modern – und immer bereit, schnell praktikable Wege zu finden.",
@@ -13,7 +20,6 @@
     "INTRO": "Technologien und Tools, die ich regelmäßig einsetze.",
     "QUESTIONS_HINT": "Fordere mich heraus – ich lerne gerne neue Technologien."
   },
-
   "PROJECTS": {
     "HEADLINE": "Mein Portfolio",
     "ITEMS": [
@@ -24,8 +30,8 @@
         "desc": "Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Tasks mit Drag & Drop, nutze Nutzerzuweisungen und Kategorien.",
         "img": "assets/img/projects/join.png",
         "links": {
-          "github": "https://github.com/DEIN-USER/join",
-          "live": "https://join.deine-subdomain.tld"
+          "github": "https://github.com/DanariDev/Join002",
+          "live": "https://join.daniel-kwiatkowski-portfolio.com/"
         }
       },
       {
@@ -35,8 +41,8 @@
         "desc": "Jump-, Run- und Wurfspiel auf OOP-Basis. Hilf Pepe, Münzen und Salsa zu finden, um das verrückte Huhn zu besiegen.",
         "img": "assets/img/projects/pollo-loco.png",
         "links": {
-          "github": "https://github.com/DEIN-USER/pollo-loco",
-          "live": "https://pollo.deine-subdomain.tld"
+          "github": "https://github.com/DanariDev/El-Pollo-Loco",
+          "live": "https://el-pollo-loco.daniel-kwiatkowski-portfolio.com/"
         }
       }
     ],
@@ -55,20 +61,20 @@
         "text": "Ich habe Daniel als freundliche und ruhige Person kennengelernt. Mit seiner Erfahrung als Developer hat er verschiedenste kreative Lösungsansätze präsentiert und sich gut in das Team integriert.Die Zusammenarbeit lief stets reibungslos und koordiniert ab."
       },
       {
-        "name": "Evelyn Marx",
+        "name": "Leonard",
         "project": "Join",
         "text": "Er ist ein vertrauenswürdiger Teamplayer und kommt mit Termindruck klar. Strukturierte Arbeit und sauberer Code."
       },
       {
-        "name": "James Rugman",
-        "project": "Join",
+        "name": "Peter",
+        "project": "Kochwelt",
         "text": "Zuverlässig und freundlich. Arbeitet strukturiert und schreibt klaren Code. Klare Empfehlung als Kollege."
       }
     ]
   },
 
   "CONTACT": {
-    "TITLE": "Kontaktiere mich",
+    "TITLE": "Kontakt",
     "INTRO": "Ich bin offen für neue Herausforderungen und freue mich darauf, mein Wissen und meine Kreativität in spannende Projekte einzubringen. Kontaktieren Sie mich gerne, wenn Sie eine motivierte Unterstützung für Ihr Team suchen.",
     "EMAIL_LABEL": "E-mail:",
     "EMAIL_VALUE": "danielkwiatkowski@gmx.de",
@@ -95,20 +101,15 @@
     "ERROR_PRIVACY": "Bitte akzeptieren Sie die Datenschutzerklärung"
   },
 
-
-
-
-
+  "NAV": {
+    "WHY_ME": "Warum ich",
+    "SKILLS": "Skills",
+    "PROJECTS": "Projekte",
+    "CONTACT": "Kontakt"
+  },
 
   "FOOTER": {
-  "LEGAL": "Rechtlicher Hinweis",
-  "PRIVACY": "Datenschutz"
+    "LEGAL": "Impressum",
+    "PRIVACY": "Datenschutz"
+  }
 }
-}
-
-
-
-
-
-
-

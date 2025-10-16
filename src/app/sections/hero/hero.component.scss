@@ -1,19 +1,11 @@
-/* ==========================================================================
-   HERO – feste Figma-Maße, sauber & einheitlich
-   ========================================================================== */
-
 :root {
   --header-h: 92px;
   --pad-left: 0px;
   --hero-w: 1337px;
   --hero-h: 554px;
-  --img-w: 539px;
-  --img-h: 554px;
+  --gap: min(5vw, 24px);
+  --img-w-fluid: clamp(420px, 40vw, 539px);
 }
-
-/* ==========================================================================
-   HOST & SECTION
-   ========================================================================== */
 
 :host {
   display: block;
@@ -25,29 +17,28 @@
 .hero {
   position: relative;
   width: 100%;
-  max-width: var(--hero-w);
+  max-width: 100%;
   height: 100%;
   margin: 0 auto;
   scroll-margin-top: var(--header-h);
   display: flex;
   align-items: stretch;
   overflow: hidden;
+  overflow-x: clip;
 }
 
 .hero_box {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  position: static;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
-  gap: 24px;
+  gap: var(--gap);
+  min-width: 0;
+  padding-right: calc(var(--img-w-fluid) + var(--gap));
 }
-
-/* ==========================================================================
-   VERTICAL CONTACT BUTTON
-   ========================================================================== */
 
 .contact_me {
   position: absolute;
@@ -70,15 +61,10 @@
   cursor: pointer;
   transition: color 0.3s ease, border-color 0.3s ease;
 }
-
 .contact_me:hover {
   color: var(--nav-link-hover, #02f4bf);
   border-color: var(--nav-link-hover, #02f4bf);
 }
-
-/* ==========================================================================
-   CENTER ARROW
-   ========================================================================== */
 
 .hero__arrow {
   position: absolute;
@@ -87,10 +73,9 @@
   transform: translateX(-50%);
   z-index: 2;
 }
-
 .hero__arrow a {
-  width: 38px;
-  height: 68px;
+  width: min(6vw, 38px);
+  height: min(10vw, 68px);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,37 +83,33 @@
   transition: border-color 0.3s ease-out;
   cursor: pointer;
 }
-
 .hero__arrow a:hover {
   border-color: #02f4bf;
 }
-
 .hero__arrow img {
-  width: 22px;
-  height: 50px;
+  width: min(4vw, 22px);
+  height: min(8vw, 50px);
   display: block;
   transition: filter 0.3s ease-out;
+  object-fit: contain;
 }
-
 .hero__arrow a:hover img {
-  filter: brightness(0) saturate(100%) invert(63%) sepia(59%) saturate(511%) hue-rotate(118deg) brightness(97%) contrast(96%);
+  filter: brightness(0) saturate(100%) invert(63%) sepia(59%) saturate(511%)
+    hue-rotate(118deg) brightness(97%) contrast(96%);
 }
-
-/* ==========================================================================
-   INTRO TEXT (BOTTOM LEFT)
-   ========================================================================== */
 
 .hero__intro {
   position: absolute;
   bottom: 0;
   left: var(--pad-left);
   padding: 0;
+  max-width: calc(100% - var(--img-w-fluid) - var(--gap));
 }
 
 .hero__intro .job-title {
   font-family: "Roboto Mono", monospace;
   font-weight: 500;
-  font-size: clamp(32px, 3.8vw, 54px);
+  font-size: clamp(24px, 2.8vw, 44px);
   line-height: 120%;
   color: #02f4bf;
   margin: 0 0 8px 0;
@@ -138,27 +119,94 @@
 .hero__intro .name {
   font-family: "Roboto Mono", monospace;
   font-weight: 700;
-  font-size: clamp(42px, 5.6vw, 82px);
+  font-size: clamp(32px, 4.4vw, 64px);
   line-height: 120%;
   color: #02f4bf;
   margin: 0;
   white-space: nowrap;
 }
 
-/* ==========================================================================
-   PROFILE IMAGE (RIGHT)
-   ========================================================================== */
-
 .hero__image {
-  margin-left: auto;
-  max-width: 539px;
+  width: var(--img-w-fluid);
   height: 100%;
+  margin-left: auto;
   flex: 0 0 auto;
+  min-width: 0;
 }
-
 .hero__image img {
-  width: auto;
+  width: 100%;
   height: 100%;
   object-fit: contain;
   display: block;
+}
+
+@media (max-width: 1240px) {
+  .hero__intro .job-title,
+  .hero__intro .name {
+    white-space: normal;
+  }
+
+  .hero__intro .job-title {
+    font-size: clamp(22px, 2.5vw, 40px);
+  }
+  .hero__intro .name {
+    font-size: clamp(30px, 4vw, 58px);
+  }
+}
+
+@media (max-width: 1099px) {
+  :host {
+    height: auto;
+  }
+  .hero {
+    min-height: 420px;
+    height: auto;
+  }
+
+  .hero__arrow,
+  .contact_me {
+    display: none;
+  }
+
+  .hero_box {
+    padding: 24px min(9.7vw, 140px) 32px;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 24px;
+    text-align: center;
+  }
+
+  .hero__image {
+    width: min(92vw, 540px);
+    height: auto;
+    aspect-ratio: 539 / 554;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+
+  .hero__image img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
+  }
+
+  .hero__intro {
+    position: static;
+    max-width: 92vw;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero__intro .job-title {
+    font-size: clamp(20px, 5vw, 30px);
+    display: block;
+  }
+
+  .hero__intro .name {
+    font-size: clamp(24px, 6.5vw, 38px);
+    display: block;
+  }
 }
