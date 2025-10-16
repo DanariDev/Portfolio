@@ -1,0 +1,101 @@
+.whyme__row {
+  position: relative;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin: 0 0 8px auto;
+}
+.whyme__row:last-child { margin-bottom: 0; }
+
+.whyme__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  height: 56px;
+  width: auto;
+  z-index: 1;
+}
+.whyme__arrow img { height: 100%; width: auto; display: block; }
+.whyme__arrow--left { left: 0; }
+.whyme__arrow--right { right: 0; }
+
+.arrow-5-inrow { display: block; }
+.whyme__arrow--right.arrow-5 { display: none; }
+
+/* relocate row content alignment */
+.whyme__row.relocate .row__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+/* Pfeil der relocate-Zeile (in-row) */
+.arrow-5-inrow {
+  justify-self: end;
+  transform: translate(
+    calc(var(--relocate-nudge) + var(--rel-arrow-x)),
+    var(--rel-arrow-y)
+  );
+}
+.arrow-5-inrow img { height: 56px; width: auto; display: block; }
+
+/* Located-Block */
+.located .located__label {
+  position: relative;
+  font: 700 48px/1 var(--mono);
+  color: var(--accent);
+  white-space: nowrap;
+}
+.located .located__icontext {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.located .located__icontext .icon {
+  position: relative;
+  width: 33px;
+  height: 57px;
+  transform: translate(var(--loc-pin-x), var(--loc-pin-y));
+}
+.located .located__icontext .pin {
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 33px;
+  height: 41px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+.located .located__icontext .pin:hover { transform: translateY(-12px); }
+
+.located .located__icontext .shadow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform-origin: center bottom;
+  transform: translateX(-40%) scale(0.9);
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+}
+.located .located__icontext .pin:hover + .shadow {
+  opacity: 1;
+  transform: translateX(-55%) scale(1);
+}
+
+.located__icontext .text {
+  font: 400 16px/1.2 var(--mono);
+  color: var(--neon);
+  text-align: right;
+  transform: translate(var(--loc-text-x), var(--loc-text-y));
+}
+
+/* Remote-Block: Text-Container */
+.remote .row__content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: flex-end;
+}

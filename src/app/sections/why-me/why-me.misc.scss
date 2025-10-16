@@ -1,0 +1,38 @@
+.fit-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.btn-talk-wrap {
+  position: relative;
+  width: min(100%, 521px);
+  height: 52px;
+  margin-left: auto;
+  padding-left: 352px;
+  display: flex;
+  align-items: center;
+  margin-top: 65px;
+}
+.btn-talk {
+  width: 169px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-weight: 600;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+  background: var(--neon);
+  color: #000;
+  border: 0;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+.btn-talk:hover { color: var(--accent); }
+.btn-talk:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}

@@ -6,16 +6,14 @@
         <h2 id="contact-title" class="contact__title">
           {{ 'CONTACT.TITLE' | translate }}
         </h2>
-        <img class="contact__arrow" src="assets/img/contact/arrow-contact.png" alt="" aria-hidden="true" />
+        <img class="contact__arrow" src="assets/img/contact/arrow-title.png" alt="" aria-hidden="true" />
       </header>
 
       <p class="contact__intro">
         {{ 'CONTACT.INTRO' | translate }}
       </p>
 
-      <!-- Mobile: eingebettete Form -->
       <app-contact-form-web class="embedded">
-        <!-- Mobile-Pfeil: zwischen Senden-Button und Items -->
         <a class="contact__to-top m-only" href="#top" [attr.aria-label]="'CONTACT.TO_TOP_LABEL' | translate">
           <img src="assets/img/contact/arrow-up.png" alt="" />
         </a>

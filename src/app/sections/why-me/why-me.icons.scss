@@ -1,0 +1,66 @@
+/* Relocate: Icon + Hoverstate */
+.relocate_icontext {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  transform: translate(var(--rel-icon-x), var(--rel-icon-y));
+}
+.relocate_icontext .icon_relocate,
+.relocate_icontext .relocate_hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+.relocate_icontext .icon_relocate { opacity: 1; }
+.relocate_icontext .relocate_hover { opacity: 0; pointer-events: none; }
+.relocate_icontext:hover .icon_relocate { opacity: 0; }
+.relocate_icontext:hover .relocate_hover { opacity: 1; }
+
+.relocate_text {
+  font: 16px/1.2 var(--mono);
+  color: var(--neon);
+  text-align: left;
+  transform: translate(var(--rel-text-x), var(--rel-text-y));
+}
+
+/* Remote: Icon + Text + Pfeile */
+.remote_icon {
+  position: relative;
+  width: 54px;
+  height: 47px;
+  transform: translate(var(--rem-icon-x), var(--rem-icon-y));
+}
+.remote_icon .icon_remote,
+.remote_icon .icon_remote_hover {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: opacity 0.25s ease;
+}
+.remote_icon .icon_remote { opacity: 1; }
+.remote_icon .icon_remote_hover { opacity: 0; pointer-events: none; }
+.remote_icon:hover .icon_remote { opacity: 0; }
+.remote_icon:hover .icon_remote_hover { opacity: 1; }
+
+.remote_text {
+  font: 18px/1.2 var(--mono);
+  color: var(--neon);
+  text-align: right;
+  transform: translate(var(--rem-text-x), var(--rem-text-y));
+}
+
+.remote_arrows {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 47px;
+}
+.remote_arrows img { height: 47px; width: auto; display: block; }
+.remote_arrows .arrow-4  { transform: translate(var(--rem-a4-x),  var(--rem-a4-y)); }
+.remote_arrows .arrow-01 { transform: translate(var(--rem-a01-x), var(--rem-a01-y)); }
