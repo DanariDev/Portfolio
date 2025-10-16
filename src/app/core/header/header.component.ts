@@ -1,49 +1,41 @@
-import { Component, HostListener, Inject } from '@angular/core';
-import { CommonModule, DOCUMENT } from '@angular/common';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [CommonModule, RouterLink, TranslateModule],
+  imports: [CommonModule, RouterModule, TranslateModule],
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  lang: 'de' | 'en' = 'de';
+  private t = inject(TranslateService);
+
   isOpen = false;
+  lang = 'de';
 
-  constructor(
-    private i18n: TranslateService,
-    @Inject(DOCUMENT) private doc: Document
-  ) {
-    const cur = this.i18n.currentLang || 'de';
-    this.lang = (cur === 'en' ? 'en' : 'de');
-    this.i18n.use(this.lang);
+  ngOnInit(): void {
+    const saved = localStorage.getItem('lang');
+    const browser = this.t.getBrowserLang();
+    this.lang =
+      saved || this.t.currentLang || (browser?.match(/de|en/) ? browser : 'de');
+    this.t.use(this.lang);
   }
 
-  setLang(l: 'de' | 'en') {
-    this.lang = l;
-    this.i18n.use(l);
+  setLang(next: 'de' | 'en'): void {
+    if (this.lang === next) return;
+    this.lang = next;
+    localStorage.setItem('lang', next);
+    this.t.use(next);
   }
 
-  toggleMenu() {
+  toggleMenu(): void {
     this.isOpen = !this.isOpen;
-    this.lockScroll(this.isOpen);
   }
 
-  closeMenu() {
+  closeMenu(): void {
     this.isOpen = false;
-    this.lockScroll(false);
-  }
-
-  @HostListener('window:resize')
-  onResize() {
-    if (window.innerWidth > 1000 && this.isOpen) this.closeMenu();
-  }
-
-  private lockScroll(lock: boolean) {
-    this.doc.body.style.overflow = lock ? 'hidden' : '';
   }
 }

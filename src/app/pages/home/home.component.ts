@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-// Sections
 import { HeroComponent } from '../../sections/hero/hero.component';
 import { WhyMeComponent } from '../../sections/why-me/why-me.component';
 import { SkillsComponent } from '../../sections/skills/skills.component';
@@ -17,12 +16,9 @@ import { ContactFormWebComponent } from '../../sections/contact-form-web/contact
   selector: 'app-home',
   standalone: true,
   imports: [
-    // Basis & Router/Translate (wichtig!)
     CommonModule,
     RouterModule,
     TranslateModule,
-
-    // Sections
     HeroComponent,
     WhyMeComponent,
     SkillsComponent,

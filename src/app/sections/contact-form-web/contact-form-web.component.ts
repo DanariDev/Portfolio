@@ -4,17 +4,14 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
-type ContactModel = {
-  name: string;
-  email: string;
-  message: string;
-};
-
-type ErrorKeys =
+type ContactModel = { name: string; email: string; message: string };
+type ErrKey =
   | 'CONTACTFORM.ERROR_NAME'
   | 'CONTACTFORM.ERROR_EMAIL'
   | 'CONTACTFORM.ERROR_MESSAGE'
-  | 'CONTACTFORM.ERROR_PRIVACY';
+  | 'CONTACTFORM.ERROR_PRIVACY'
+  | 'CONTACTFORM.ERROR_SEND'
+  | 'CONTACTFORM.ERROR_SERVER';
 
 @Component({
   selector: 'app-contact-form-web',
@@ -28,9 +25,8 @@ export class ContactFormWebComponent {
   accepted = false;
   isSending = false;
 
-  errors: Partial<
-    Record<'name' | 'email' | 'message' | 'accepted', ErrorKeys>
-  > = {};
+  errors: Partial<Record<'name' | 'email' | 'message' | 'accepted', ErrKey>> =
+    {};
 
   onAcceptChange(): void {
     this.errors.accepted = this.accepted
@@ -38,49 +34,57 @@ export class ContactFormWebComponent {
       : 'CONTACTFORM.ERROR_PRIVACY';
   }
 
-  private validate(): boolean {
+    private validate(): boolean {
     const e: typeof this.errors = {};
-
     if (!this.model.name.trim()) e.name = 'CONTACTFORM.ERROR_NAME';
-
-    const mail = this.model.email.trim();
-    const okEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
-    if (!okEmail) e.email = 'CONTACTFORM.ERROR_EMAIL';
-
+    if (!this.isValidEmail(this.model.email)) e.email = 'CONTACTFORM.ERROR_EMAIL';  
     if (!this.model.message.trim()) e.message = 'CONTACTFORM.ERROR_MESSAGE';
-
     if (!this.accepted) e.accepted = 'CONTACTFORM.ERROR_PRIVACY';
-
     this.errors = e;
     return Object.keys(e).length === 0;
   }
 
-  onSubmit() {
-    if (!this.accepted || this.isSending) return;
+
+  async onSubmit(): Promise<void> {
+    if (this.isSending) return;
+    if (!this.validate()) return;
 
     this.isSending = true;
-    const payload = {
-      name: this.model.name,
-      email: this.model.email,
-      message: this.model.message,
-    };
+    try {
+      const res = await fetch('/sendMail.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.model),
+      });
+      const data = await res.json();
+      data.success
+        ? this.resetForm()
+        : (this.errors.message = 'CONTACTFORM.ERROR_SEND');
+    } catch {
+      this.errors.message = 'CONTACTFORM.ERROR_SERVER';
+    } finally {
+      this.isSending = false;
+    }
+  }
 
-    fetch('/sendMail.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload),
-    })
-      .then((res) => res.json())
-      .then((res) => {
-        if (res.success) {
-          alert('Nachricht erfolgreich gesendet ✅');
-          this.model = { name: '', email: '', message: '' };
-          this.accepted = false;
-        } else {
-          alert('Fehler beim Senden ❌');
-        }
-      })
-      .catch(() => alert('Server nicht erreichbar ❌'))
-      .finally(() => (this.isSending = false));
+  private resetForm(): void {
+    this.model = { name: '', email: '', message: '' };
+    this.accepted = false;
+    this.errors = {};
+  }
+
+  get okName(): boolean {
+    return !!this.model.name.trim() && !this.errors.name;
+  }
+  get okEmail(): boolean {
+    return this.isValidEmail(this.model.email) && !this.errors.email;
+  }
+  get okMessage(): boolean {
+    return !!this.model.message.trim() && !this.errors.message;
+  }
+
+  private isValidEmail(v: string): boolean {
+    const mail = (v || '').trim();
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
   }
 }

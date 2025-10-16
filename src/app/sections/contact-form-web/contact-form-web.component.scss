@@ -1,4 +1,3 @@
-
 :host {
   --accent: #e15544;
   --neon: #02f4bf;
@@ -107,7 +106,6 @@
   &::placeholder {
     color: var(--neon);
   }
-
   &:focus {
     border-color: var(--neon);
     box-shadow: 0 0 0 2px var(--line-dim);
@@ -247,7 +245,6 @@ input.field__control {
     display: none !important;
   }
 }
-
 @media (min-width: 1151px) {
   :host(.embedded) {
     display: none !important;
@@ -301,5 +298,27 @@ input.field__control {
   .contact__to-top:hover img {
     filter: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(749%)
       hue-rotate(109deg) brightness(98%) contrast(95%);
+  }
+}
+
+.error-inline,
+.error-inline--below {
+  color: #e15544 !important;
+}
+
+.field__ok {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 18px;
+  height: 18px;
+  background: center / contain no-repeat
+    url("../../../assets/img/contact/ok-green.png");
+  pointer-events: none;
+}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .field__ok {
+    background-size: contain;
   }
 }

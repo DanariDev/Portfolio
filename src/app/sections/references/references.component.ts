@@ -13,14 +13,18 @@ interface Reference {
   standalone: true,
   imports: [CommonModule, TranslateModule],
   templateUrl: './references.component.html',
-  styleUrls: ['./references.component.scss']
+  styleUrls: ['./references.component.scss'],
 })
 export class ReferencesComponent {
   references: Reference[] = [];
 
   constructor(private translate: TranslateService) {
-    this.translate.stream('REFERENCES.ITEMS').subscribe((items: Reference[]) => {
-      this.references = items || [];
-    });
+    this.loadReferences();
+  }
+
+  private loadReferences(): void {
+    this.translate
+      .stream('REFERENCES.ITEMS')
+      .subscribe((items) => (this.references = items || []));
   }
 }

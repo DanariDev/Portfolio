@@ -2,43 +2,37 @@
   <h3 class="contact__headline">{{ 'CONTACTFORM.HEADLINE' | translate }}</h3>
 
   <form class="contact__grid" (ngSubmit)="onSubmit()" novalidate>
-    <!-- Name -->
     <div class="field field--name">
       <label class="sr-only" for="name">{{ 'CONTACTFORM.NAME' | translate }}</label>
       <div class="field__box">
         <input id="name" name="name" type="text" class="field__control" [placeholder]="'CONTACTFORM.NAME' | translate"
           [(ngModel)]="model.name" required />
-        <span class="error-inline" *ngIf="errors.name">
-          <i>*</i> {{ errors.name | translate }}
-        </span>
+        <span class="field__ok" *ngIf="okName" aria-hidden="true"></span> 
+        <span class="error-inline" *ngIf="errors.name"><i>*</i> {{ errors.name | translate }}</span>
       </div>
     </div>
 
-    <!-- Email -->
     <div class="field field--email">
       <label class="sr-only" for="email">{{ 'CONTACTFORM.EMAIL' | translate }}</label>
       <div class="field__box">
         <input id="email" name="email" type="email" class="field__control"
           [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" required />
-        <span class="error-inline" *ngIf="errors.email">
-          <i>*</i> {{ errors.email | translate }}
-        </span>
+        <span class="field__ok" *ngIf="okEmail" aria-hidden="true"></span> 
+        <span class="error-inline" *ngIf="errors.email"><i>*</i> {{ errors.email | translate }}</span>
       </div>
     </div>
 
-    <!-- Message -->
     <div class="field field--message">
       <label class="sr-only" for="message">{{ 'CONTACTFORM.MESSAGE' | translate }}</label>
       <div class="field__box">
         <textarea id="message" name="message" class="field__control" [placeholder]="'CONTACTFORM.MESSAGE' | translate"
           [(ngModel)]="model.message" required></textarea>
-        <span class="error-inline" *ngIf="errors.message">
-          <i>*</i> {{ errors.message | translate }}
-        </span>
+        <span class="field__ok" *ngIf="okMessage" aria-hidden="true"></span> 
+        <span class="error-inline" *ngIf="errors.message"><i>*</i> {{ errors.message | translate }}</span>
       </div>
     </div>
 
-    <!-- Consent -->
+
     <div class="consent">
       <label class="check">
         <input class="check__control" type="checkbox" [(ngModel)]="accepted" name="accepted"
@@ -57,15 +51,16 @@
       </div>
     </div>
 
-    <!-- Send + (ng-content) für Mobile-Pfeil -->
     <div class="field">
       <div class="contact__button-wrap">
-        <button type="submit" class="send-btn" [disabled]="!accepted || isSending"
-          [ngClass]="{ 'is-accepted': accepted }">
-          {{ isSending ? ('CONTACTFORM.SENDING' | translate) : ('CONTACTFORM.SUBMIT' | translate) }}
+        <button type="submit" class="send-btn" [disabled]="isSending" [ngClass]="{ 'is-accepted': accepted }">
+          {{
+          isSending
+          ? ('CONTACTFORM.SENDING' | translate)
+          : ('CONTACTFORM.SUBMIT' | translate)
+          }}
         </button>
 
-        <!-- Mobile-Pfeil via Parent -->
         <ng-content></ng-content>
       </div>
     </div>

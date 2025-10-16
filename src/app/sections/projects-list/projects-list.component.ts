@@ -11,8 +11,7 @@ type ProjectItem = {
   desc: string;
   img: string;
   links?: ProjectLink;
-
-  fit?: 'contain';            
+  fit?: 'contain';
   focus?:
     | 'top' | 'bottom' | 'left' | 'right'
     | 'top-left' | 'top-right' | 'bottom-left' | 'bottom-right';
@@ -32,9 +31,13 @@ export class ProjectsListComponent implements OnInit, OnDestroy {
   constructor(private translate: TranslateService) {}
 
   ngOnInit(): void {
-    this.sub = this.translate.stream('PROJECTS.ITEMS').subscribe((items: unknown) => {
-      this.projects = Array.isArray(items) ? (items as ProjectItem[]) : [];
-    });
+    this.sub = this.translate
+      .stream('PROJECTS.ITEMS')
+      .subscribe(items => this.updateProjects(items));
+  }
+
+  private updateProjects(items: unknown): void {
+    this.projects = Array.isArray(items) ? (items as ProjectItem[]) : [];
   }
 
   ngOnDestroy(): void {
