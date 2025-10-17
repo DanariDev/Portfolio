@@ -78,3 +78,8 @@ section > h2,
   gap: var(--gutter);
   align-items: center;
 }
+
+html { 
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-h, 92px) + 16px); 
+}

@@ -4,11 +4,16 @@
       <button class="brand" routerLink="/">&lt; DK &gt;</button>
 
       <nav class="nav" aria-label="Primary">
-        <a routerLink="/" fragment="why-me">{{ 'HEADER.WHYME' | translate }}</a>
-        <a routerLink="/" fragment="skills">{{ 'HEADER.SKILLS' | translate }}</a>
-        <a routerLink="/" fragment="projects">{{ 'HEADER.PROJECTS' | translate }}</a>
-        <a routerLink="/" fragment="references">{{ 'HEADER.REFERENCES' | translate }}</a>
-        <a routerLink="/" fragment="contact">{{ 'HEADER.CONTACT' | translate }}</a>
+        <a routerLink="/" fragment="why-me-title" (click)="scrollTo('why-me-title', $event)">{{ 'HEADER.WHYME' |
+          translate }}</a>
+        <a routerLink="/" fragment="skills-title" (click)="scrollTo('skills-title', $event)">{{ 'HEADER.SKILLS' |
+          translate }}</a>
+        <a routerLink="/" fragment="projects-title" (click)="scrollTo('projects-title', $event)">{{ 'HEADER.PROJECTS' |
+          translate }}</a>
+        <a routerLink="/" fragment="references-title" (click)="scrollTo('references-title', $event)">{{
+          'HEADER.REFERENCES' | translate }}</a>
+        <a routerLink="/" fragment="contact-title" (click)="scrollTo('contact-title', $event)">{{ 'HEADER.CONTACT' |
+          translate }}</a>
       </nav>
     </div>
 
@@ -28,11 +33,17 @@
   <button class="close" type="button" aria-label="Close menu" (click)="closeMenu()">×</button>
 
   <nav class="mobile__nav" aria-label="Mobile Primary">
-    <a routerLink="/" fragment="why-me" (click)="closeMenu()">{{ 'HEADER.WHYME' | translate }}</a>
-    <a routerLink="/" fragment="skills" (click)="closeMenu()">{{ 'HEADER.SKILLS' | translate }}</a>
-    <a routerLink="/" fragment="projects" (click)="closeMenu()">{{ 'HEADER.PROJECTS' | translate }}</a>
-    <a routerLink="/" fragment="references" (click)="closeMenu()">{{ 'HEADER.REFERENCES' | translate }}</a>
-    <a routerLink="/" fragment="contact" (click)="closeMenu()">{{ 'HEADER.CONTACT' | translate }}</a>
+    <a routerLink="/" fragment="why-me-title-mobile" (click)="scrollTo('why-me-title-mobile', $event)">
+      {{ 'HEADER.WHYME' | translate }}
+    </a>
+    <a routerLink="/" fragment="skills-title" (click)="scrollTo('skills-title', $event)">{{ 'HEADER.SKILLS' | translate
+      }}</a>
+    <a routerLink="/" fragment="projects-title" (click)="scrollTo('projects-title', $event)">{{ 'HEADER.PROJECTS' |
+      translate }}</a>
+    <a routerLink="/" fragment="references-title" (click)="scrollTo('references-title', $event)">{{ 'HEADER.REFERENCES'
+      | translate }}</a>
+    <a routerLink="/" fragment="contact-title" (click)="scrollTo('contact-title', $event)">{{ 'HEADER.CONTACT' |
+      translate }}</a>
   </nav>
 
   <div class="mobile__lang">

@@ -1,5 +1,15 @@
-@use './why-me.base' as *;
-@use './why-me.rows' as *;
-@use './why-me.icons' as *;
-@use './why-me.misc' as *;
-@use './why-me.responsive' as *;
+@use "./why-me.base" as *;
+@use "./why-me.rows" as *;
+@use "./why-me.icons" as *;
+@use "./why-me.misc" as *;
+@use "./why-me.responsive" as *;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+#contact-form-web {
+  scroll-margin-top: var(--header-h, 92px);
+}
+

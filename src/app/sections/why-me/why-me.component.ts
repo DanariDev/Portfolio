@@ -14,17 +14,12 @@ export class WhyMeComponent {
 
   goTo(id: string): void {
     const el = this.doc.getElementById(id);
-    el ? this.scrollToElement(el) : this.setHash(id);
-  }
+    if (!el) return;
 
-  private scrollToElement(el: HTMLElement): void {
-    const header = this.doc.querySelector('app-header') as HTMLElement | null;
-    const offset = header ? header.getBoundingClientRect().height : 100;
+    const header = this.doc.querySelector('.site-header') as HTMLElement | null;
+    const offset = header ? header.offsetHeight + 16 : 100;
+
     const y = el.getBoundingClientRect().top + window.scrollY - offset;
     window.scrollTo({ top: y, behavior: 'smooth' });
-  }
-
-  private setHash(id: string): void {
-    this.doc.location.hash = id;
   }
 }

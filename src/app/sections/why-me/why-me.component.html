@@ -11,7 +11,7 @@
     <p class="whyme__copy">{{ 'WHYME.COPY' | translate }}</p>
 
     <div class="whyme_container">
-    
+
       <div class="whyme__rows">
         <div class="whyme__row located" role="group" aria-label="Location">
           <div class="located__label">
@@ -56,15 +56,16 @@
     </div>
 
     <div class="btn-talk-wrap">
-      <button class="btn-talk" type="button" (click)="goTo('contact-form-web')">
+      <button class="btn-talk" type="button" (click)="goTo('contact-title')">
         {{ 'WHYME.CTA' | translate }}
       </button>
+
     </div>
   </div>
 
   <div class="mobile-version">
     <div class="whyme__headline-box">
-      <h2 id="why-me-title" class="whyme__headline">
+      <h2 id="why-me-title-mobile" class="whyme__headline">
         {{ 'WHYME.TITLE' | translate }}
       </h2>
     </div>
@@ -103,9 +104,10 @@
     <img class="mv-arrow mv-arrow--bottom" src="assets/img/why-me-responsiv/Arrow 4.png" alt="">
 
     <div class="btn-talk-wrap mobile-cta">
-      <button class="btn-talk" type="button" (click)="goTo('contact-form-web')">
+      <button class="btn-talk" type="button" (click)="goTo('contact-title')">
         {{ 'WHYME.CTA' | translate }}
       </button>
+
     </div>
   </div>
 </section>

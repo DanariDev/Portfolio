@@ -1,24 +1,20 @@
 <section id="skills" class="skills" aria-labelledby="skills-title">
   <div class="skills__box">
-    <!-- Headings -->
     <h2 id="skills-title" class="skills__title">{{ 'SKILLS.TITLE' | translate }}</h2>
     <h4 class="skills__subtitle">{{ 'SKILLS.INTRO' | translate }}</h4>
 
-    <!-- Grid -->
     <ul class="skills__grid" role="list">
       <li class="skill" *ngFor="let s of skills" [ngClass]="{ 'skill--questions': s.id === 'questions' }">
         <figure class="skill__card">
           <img [src]="s.src" [alt]="s.label" loading="lazy" />
         </figure>
 
-        <!-- nur für Fragen-Icon -->
         <p *ngIf="s.id === 'questions'" class="skill__hint">
           {{ 'SKILLS.QUESTIONS_HINT' | translate }}
         </p>
       </li>
     </ul>
 
-    <!-- MOBILE: Pfeil → Text zwischen Grid und Button -->
     <div class="skills__note-wrap">
       <img
         class="skills__note-arrow"
@@ -31,9 +27,8 @@
       </p>
     </div>
 
-    <!-- CTA -->
     <div class="btn-talk-wrap mobile-cta">
-      <button class="btn-talk" type="button" (click)="goTo('contact-form-web')">
+      <button class="btn-talk" type="button" (click)="goTo('contact-title')">
         {{ 'WHYME.CTA' | translate }}
       </button>
     </div>
