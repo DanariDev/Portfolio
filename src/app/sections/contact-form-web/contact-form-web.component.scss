@@ -322,3 +322,133 @@ input.field__control {
     background-size: contain;
   }
 }
+.toast-backdrop {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.35);
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+  z-index: 9999;
+}
+
+.toast {
+  width: min(520px, 94vw);
+  background: #0c1014; 
+  color: var(--text);
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 18px 55px rgba(0, 0, 0, 0.45);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
+  padding: 18px 18px 18px 16px;
+  font-family: var(--mono);
+  line-height: 1.35;
+  opacity: 0;
+  transform: translateY(10px) scale(0.985);
+  animation: toast-in 220ms ease-out forwards;
+}
+
+.toast__icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  font-size: 16px;
+  color: var(--text);
+  margin-top: 2px;
+  user-select: none;
+}
+
+.toast__content {
+  align-self: center;
+
+  strong {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    color: var(--neon);
+    letter-spacing: 0.2px;
+  }
+
+  p {
+    margin: 0;
+    font-size: min(3.8vw, 14px);
+    color: var(--muted);
+  }
+}
+
+.toast__close {
+  align-self: start;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 2px 6px;
+  margin-right: -4px;
+  transition: color 0.15s ease-out, transform 0.15s ease-out;
+
+  &:hover {
+    color: var(--text);
+    transform: scale(1.06);
+  }
+}
+
+.toast--success {
+  border-color: rgba(2, 244, 191, 0.25);
+
+  .toast__icon {
+    background: rgba(2, 244, 191, 0.18);
+  }
+  .toast__content strong {
+    color: var(--neon);
+  }
+}
+
+.toast--error {
+  border-color: rgba(225, 85, 68, 0.3);
+
+  .toast__icon {
+    background: rgba(225, 85, 68, 0.18);
+  }
+  .toast__content strong {
+    color: var(--accent);
+  }
+}
+.toast-backdrop {
+  cursor: pointer;
+}
+.toast {
+  cursor: default;
+} 
+
+@media (max-width: 420px) {
+  .toast {
+    gap: 12px;
+    padding: 14px;
+    grid-template-columns: auto 1fr auto;
+  }
+  .toast__icon {
+    width: 32px;
+    height: 32px;
+    font-size: 14px;
+  }
+  .toast__close {
+    font-size: 22px;
+  }
+}
+
+/* Motion */
+@keyframes toast-in {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

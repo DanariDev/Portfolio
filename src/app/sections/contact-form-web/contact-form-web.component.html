@@ -1,5 +1,5 @@
 <section class="contact">
-   <span id="contact-form-web" class="anchor" aria-hidden="true"></span>
+  <span id="contact-form-web" class="anchor" aria-hidden="true"></span>
   <h3 class="contact__headline">{{ 'CONTACTFORM.HEADLINE' | translate }}</h3>
 
   <form class="contact__grid" (ngSubmit)="onSubmit()" novalidate>
@@ -8,7 +8,7 @@
       <div class="field__box">
         <input id="name" name="name" type="text" class="field__control" [placeholder]="'CONTACTFORM.NAME' | translate"
           [(ngModel)]="model.name" required />
-        <span class="field__ok" *ngIf="okName" aria-hidden="true"></span> 
+        <span class="field__ok" *ngIf="okName" aria-hidden="true"></span>
         <span class="error-inline" *ngIf="errors.name"><i>*</i> {{ errors.name | translate }}</span>
       </div>
     </div>
@@ -18,7 +18,7 @@
       <div class="field__box">
         <input id="email" name="email" type="email" class="field__control"
           [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" required />
-        <span class="field__ok" *ngIf="okEmail" aria-hidden="true"></span> 
+        <span class="field__ok" *ngIf="okEmail" aria-hidden="true"></span>
         <span class="error-inline" *ngIf="errors.email"><i>*</i> {{ errors.email | translate }}</span>
       </div>
     </div>
@@ -28,7 +28,7 @@
       <div class="field__box">
         <textarea id="message" name="message" class="field__control" [placeholder]="'CONTACTFORM.MESSAGE' | translate"
           [(ngModel)]="model.message" required></textarea>
-        <span class="field__ok" *ngIf="okMessage" aria-hidden="true"></span> 
+        <span class="field__ok" *ngIf="okMessage" aria-hidden="true"></span>
         <span class="error-inline" *ngIf="errors.message"><i>*</i> {{ errors.message | translate }}</span>
       </div>
     </div>
@@ -40,7 +40,7 @@
           (change)="onAcceptChange()" />
         <span>
           {{ 'CONTACTFORM.PRIVACY' | translate }}
-          <a class="check__link" routerLink="/legal/privacy">
+          <a class="check__link" routerLink="/privacy">
             {{ 'CONTACTFORM.PRIVACY_LINK' | translate }}
           </a>
           {{ 'CONTACTFORM.PRIVACY_AGREE' | translate }}
@@ -66,4 +66,18 @@
       </div>
     </div>
   </form>
+  <div *ngIf="toast.show" class="toast-backdrop" (click)="closeToast()">
+    <div class="toast" role="alertdialog" aria-live="assertive" aria-modal="true" (click)="$event.stopPropagation()"
+      [class.toast--success]="toast.kind === 'success'" [class.toast--error]="toast.kind === 'error'">
+      <div class="toast__icon" aria-hidden="true">
+        <span *ngIf="toast.kind==='success'">✓</span>
+        <span *ngIf="toast.kind==='error'">!</span>
+      </div>
+      <div class="toast__content">
+        <strong *ngIf="toast.kind==='success'">{{ 'CONTACTFORM.HEADLINE' | translate }}</strong>
+        <p>{{ toast.msgKey | translate }}</p>
+      </div>
+      <button class="toast__close" type="button" (click)="closeToast()" aria-label="Close">×</button>
+    </div>
+  </div>
 </section>

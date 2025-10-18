@@ -13,6 +13,8 @@ type ErrKey =
   | 'CONTACTFORM.ERROR_SEND'
   | 'CONTACTFORM.ERROR_SERVER';
 
+type ToastKind = 'success' | 'error';
+
 @Component({
   selector: 'app-contact-form-web',
   standalone: true,
@@ -28,22 +30,29 @@ export class ContactFormWebComponent {
   errors: Partial<Record<'name' | 'email' | 'message' | 'accepted', ErrKey>> =
     {};
 
+  toast = {
+    show: false,
+    kind: 'success' as ToastKind,
+    msgKey: 'CONTACTFORM.SENT',
+  };
+  private toastTimer?: any;
+
   onAcceptChange(): void {
     this.errors.accepted = this.accepted
       ? undefined
       : 'CONTACTFORM.ERROR_PRIVACY';
   }
 
-    private validate(): boolean {
+  private validate(): boolean {
     const e: typeof this.errors = {};
     if (!this.model.name.trim()) e.name = 'CONTACTFORM.ERROR_NAME';
-    if (!this.isValidEmail(this.model.email)) e.email = 'CONTACTFORM.ERROR_EMAIL';  
+    if (!this.isValidEmail(this.model.email))
+      e.email = 'CONTACTFORM.ERROR_EMAIL';
     if (!this.model.message.trim()) e.message = 'CONTACTFORM.ERROR_MESSAGE';
     if (!this.accepted) e.accepted = 'CONTACTFORM.ERROR_PRIVACY';
     this.errors = e;
     return Object.keys(e).length === 0;
   }
-
 
   async onSubmit(): Promise<void> {
     if (this.isSending) return;
@@ -57,11 +66,16 @@ export class ContactFormWebComponent {
         body: JSON.stringify(this.model),
       });
       const data = await res.json();
-      data.success
-        ? this.resetForm()
-        : (this.errors.message = 'CONTACTFORM.ERROR_SEND');
+      if (data.success) {
+        this.resetForm();
+        this.openToast('success', 'CONTACTFORM.SENT');
+      } else {
+        this.errors.message = 'CONTACTFORM.ERROR_SEND';
+        this.openToast('error', 'CONTACTFORM.ERROR_SEND');
+      }
     } catch {
       this.errors.message = 'CONTACTFORM.ERROR_SERVER';
+      this.openToast('error', 'CONTACTFORM.ERROR_SERVER');
     } finally {
       this.isSending = false;
     }
@@ -76,9 +90,11 @@ export class ContactFormWebComponent {
   get okName(): boolean {
     return !!this.model.name.trim() && !this.errors.name;
   }
+
   get okEmail(): boolean {
     return this.isValidEmail(this.model.email) && !this.errors.email;
   }
+
   get okMessage(): boolean {
     return !!this.model.message.trim() && !this.errors.message;
   }
@@ -86,5 +102,15 @@ export class ContactFormWebComponent {
   private isValidEmail(v: string): boolean {
     const mail = (v || '').trim();
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+  }
+
+  private openToast(kind: ToastKind, msgKey: string): void {
+    this.toast = { show: true, kind, msgKey };
+    clearTimeout(this.toastTimer);
+    this.toastTimer = setTimeout(() => this.closeToast(), 3500);
+  }
+
+  closeToast(): void {
+    this.toast.show = false;
   }
 }
