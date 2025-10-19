@@ -12,8 +12,16 @@
   margin: 0;
   padding: 0;
 }
-@supports (height: 100svh) { :host { min-height: calc(100svh - var(--header-h)); } }
-@supports (height: 100dvh) { :host { min-height: calc(100dvh - var(--header-h)); } }
+@supports (height: 100svh) {
+  :host {
+    min-height: calc(100svh - var(--header-h));
+  }
+}
+@supports (height: 100dvh) {
+  :host {
+    min-height: calc(100dvh - var(--header-h));
+  }
+}
 
 .hero {
   position: relative;
@@ -61,9 +69,12 @@
   text-orientation: mixed;
   transform: rotate(180deg);
   cursor: pointer;
-  transition: color .3s ease, border-color .3s ease;
+  transition: color 0.3s ease, border-color 0.3s ease;
 }
-.contact_me:hover { color: var(--nav-link-hover, #02f4bf); border-color: var(--nav-link-hover, #02f4bf); }
+.contact_me:hover {
+  color: var(--nav-link-hover, #02f4bf);
+  border-color: var(--nav-link-hover, #02f4bf);
+}
 
 .hero__arrow {
   position: absolute;
@@ -79,15 +90,17 @@
   justify-content: center;
   align-items: center;
   border: 1px solid transparent;
-  transition: border-color .3s ease-out;
+  transition: border-color 0.3s ease-out;
   cursor: pointer;
 }
-.hero__arrow a:hover { border-color: #02f4bf; }
+.hero__arrow a:hover {
+  border-color: #02f4bf;
+}
 .hero__arrow img {
   width: min(4vw, 26px);
   height: min(8vw, 56px);
   display: block;
-  transition: filter .3s ease-out;
+  transition: filter 0.3s ease-out;
   object-fit: contain;
 }
 .hero__arrow a:hover img {
@@ -130,26 +143,49 @@
   display: flex;
   justify-content: flex-end;
   z-index: 1;
-  pointer-events: none;  
+  pointer-events: none;
 }
 .hero__image img {
   width: 100%;
   height: 100%;
-  object-fit: cover;   
+  object-fit: cover;
   object-position: center 10%;
   display: block;
 }
 
+@media (min-width: 1100px) {
+  .hero__image {
+    overflow: hidden;
+  }
+  .hero__image img {
+    transform: translateY(-6%);
+    transition: transform 0.3s ease;
+  }
+}
+
 @media (max-width: 1240px) {
   .hero__intro .job-title,
-  .hero__intro .name { white-space: normal; }
-  .hero__intro .job-title { font-size: clamp(22px, 2.8vw, 46px); }
-  .hero__intro .name { font-size: clamp(32px, 4.6vw, 64px); }
+  .hero__intro .name {
+    white-space: normal;
+  }
+  .hero__intro .job-title {
+    font-size: clamp(22px, 2.8vw, 46px);
+  }
+  .hero__intro .name {
+    font-size: clamp(32px, 4.6vw, 64px);
+  }
 }
 
 @media (max-width: 1099px) {
-  .hero { min-height: 420px; height: auto; }
-  .hero__arrow, .contact_me { display: none; }
+  .hero {
+    min-height: 420px;
+    height: auto;
+  }
+
+  .hero__arrow,
+  .contact_me {
+    display: none;
+  }
 
   .hero_box {
     padding: 24px min(9.7vw, 140px) 32px;
@@ -161,29 +197,41 @@
   }
 
   .hero__intro {
-    flex: 0 1 auto;
-    max-width: 92vw;
+    flex: none;
+    max-width: 100%;
+    width: 100%;
     position: static;
     text-align: center;
     margin: 0 auto;
   }
 
   .hero__image {
+    flex: none;
     position: static;
-    flex: 0 1 auto;
-    max-width: none;
-    width: min(92vw, 540px);
+    width: 100%;
+    max-width: 100%;
     height: auto;
     margin: 0 auto;
     display: flex;
     justify-content: center;
+    align-items: center;
   }
+
   .hero__image img {
     width: 100%;
     height: auto;
     object-fit: contain;
+    object-position: center;
+    display: block;
   }
 
-  .hero__intro .job-title { font-size: clamp(20px, 5vw, 32px); display: block; }
-  .hero__intro .name { font-size: clamp(24px, 6.5vw, 42px); display: block; }
+  .hero__intro .job-title {
+    font-size: clamp(20px, 5vw, 32px);
+    display: block;
+  }
+
+  .hero__intro .name {
+    font-size: clamp(24px, 6.5vw, 42px);
+    display: block;
+  }
 }

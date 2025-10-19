@@ -11,8 +11,9 @@
           [attr.aria-invalid]="(nameCtrl.touched || nameCtrl.dirty) && !!errors.name ? 'true' : null" />
         <span class="field__ok" *ngIf="nameCtrl.touched && !errors.name" aria-hidden="true"></span>
       </div>
-      <span class="error-inline error-inline--below" *ngIf="(nameCtrl.touched || nameCtrl.dirty) && errors.name">
-        <i>*</i> {{ errors.name | translate }}
+      <span class="error-slot" aria-live="polite">
+        <i *ngIf="(nameCtrl.touched || nameCtrl.dirty) && errors.name">*</i>
+        {{ ((nameCtrl.touched || nameCtrl.dirty) && errors.name) ? (errors.name | translate) : '' }}
       </span>
     </div>
 
@@ -21,12 +22,13 @@
       <div class="field__box">
         <input id="email" name="email" type="email" class="field__control"
           [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" #emailCtrl="ngModel" required
-          autocomplete="off" (input)="onInput()
-          " [attr.aria-invalid]="(emailCtrl.touched || emailCtrl.dirty) && !!errors.email ? 'true' : null" />
+          autocomplete="off" (input)="onInput()"
+          [attr.aria-invalid]="(emailCtrl.touched || emailCtrl.dirty) && !!errors.email ? 'true' : null" />
         <span class="field__ok" *ngIf="emailCtrl.touched && !errors.email" aria-hidden="true"></span>
       </div>
-      <span class="error-inline error-inline--below" *ngIf="(emailCtrl.touched || emailCtrl.dirty) && errors.email">
-        <i>*</i> {{ errors.email | translate }}
+      <span class="error-slot" aria-live="polite">
+        <i *ngIf="(emailCtrl.touched || emailCtrl.dirty) && errors.email">*</i>
+        {{ ((emailCtrl.touched || emailCtrl.dirty) && errors.email) ? (errors.email | translate) : '' }}
       </span>
     </div>
 
@@ -38,8 +40,9 @@
           [attr.aria-invalid]="(msgCtrl.touched || msgCtrl.dirty) && !!errors.message ? 'true' : null"></textarea>
         <span class="field__ok" *ngIf="msgCtrl.touched && !errors.message" aria-hidden="true"></span>
       </div>
-      <span class="error-inline error-inline--below" *ngIf="(msgCtrl.touched || msgCtrl.dirty) && errors.message">
-        <i>*</i> {{ errors.message | translate }}
+      <span class="error-slot" aria-live="polite">
+        <i *ngIf="(msgCtrl.touched || msgCtrl.dirty) && errors.message">*</i>
+        {{ ((msgCtrl.touched || msgCtrl.dirty) && errors.message) ? (errors.message | translate) : '' }}
       </span>
     </div>
 
@@ -54,9 +57,10 @@
         </span>
       </label>
 
-      <div class="error-inline error-inline--below" *ngIf="(accCtrl.touched || accCtrl.dirty) && errors.accepted">
-        <i>*</i> {{ errors.accepted | translate }}
-      </div>
+      <span class="error-slot" aria-live="polite">
+        <i *ngIf="(accCtrl.touched || accCtrl.dirty) && errors.accepted">*</i>
+        {{ ((accCtrl.touched || accCtrl.dirty) && errors.accepted) ? (errors.accepted | translate) : '' }}
+      </span>
     </div>
 
     <div class="field">
@@ -65,7 +69,6 @@
           [ngClass]="{ 'is-accepted': accepted, 'is-valid': allValid }">
           {{ isSending ? ('CONTACTFORM.SENDING' | translate) : ('CONTACTFORM.SUBMIT' | translate) }}
         </button>
-
         <ng-content></ng-content>
       </div>
     </div>

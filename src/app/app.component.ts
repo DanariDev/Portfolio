@@ -19,7 +19,7 @@ export class AppComponent {
 
   private setupLanguages(): void {
     this.t.addLangs(['de', 'en']);
-    this.t.setDefaultLang('de');
+    this.t.setFallbackLang('de'); 
     const saved = localStorage.getItem('lang');
     const browser = this.t.getBrowserLang();
     const lang = saved || (browser?.match(/de|en/) ? browser : 'de');
