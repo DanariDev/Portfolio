@@ -446,3 +446,166 @@
     color: var(--skills-sub);
   }
 }
+.skill__card {
+  perspective: 700px;
+  isolation: isolate;
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.skill__card img {
+  animation: breathe 4.2s ease-in-out infinite, floaty 6s ease-in-out infinite;
+  transform-origin: 50% 60%;
+  will-change: transform, filter;
+}
+
+.skill__card:hover img,
+.skill__card:focus-within img {
+  transform: scale(calc(var(--img-zoom) * 1.08)) rotateX(6deg) rotateY(-6deg);
+  filter: brightness(1.08) saturate(1.05);
+}
+
+.skill__card::before {
+  content: "";
+  position: absolute;
+  inset: -20%;
+  background: linear-gradient(
+      75deg,
+      rgba(255, 255, 255, 0) 35%,
+      rgba(255, 255, 255, 0.25) 48%,
+      rgba(255, 255, 255, 0) 62%
+    )
+    no-repeat 0 0 / 30% 120%;
+  transform: translateX(-120%);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0;
+}
+
+@keyframes sheen {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.55;
+  }
+  100% {
+    transform: translateX(140%);
+    opacity: 0;
+  }
+}
+
+.skill__card:hover::before,
+.skill__card:focus-within::before {
+  animation: sheen 0.9s ease forwards;
+}
+
+@keyframes neon {
+  0%,
+  100% {
+    box-shadow: 0 0 10px 2px var(--skills-sub),
+      0 0 22px 6px rgba(2, 244, 191, 0.45);
+  }
+  50% {
+    box-shadow: 0 0 16px 3px var(--skills-sub),
+      0 0 32px 9px rgba(2, 244, 191, 0.55);
+  }
+}
+
+.skill__card::after {
+  animation: neon 2.4s ease-in-out infinite;
+}
+
+.skill__card .sparkle {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+        circle at 20% 30%,
+        rgba(255, 255, 255, 0.25) 0 2px,
+        transparent 3px
+      )
+      0 0/100% 100%,
+    radial-gradient(
+        circle at 75% 60%,
+        rgba(255, 255, 255, 0.18) 0 1.5px,
+        transparent 2.5px
+      )
+      0 0/100% 100%;
+  mix-blend-mode: screen;
+  opacity: 0;
+  transform: translateZ(0);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+.skill__card:hover .sparkle,
+.skill__card:focus-within .sparkle {
+  animation: twinkle 1.6s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%,
+  100% {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(-3deg);
+  }
+}
+
+.skill--questions .skill__card img {
+  animation: breathe 4.2s ease-in-out infinite, wiggle 2.8s ease-in-out infinite;
+}
+
+.skills__grid .skill:nth-child(6n + 1) {
+  --delay: 0ms;
+}
+.skills__grid .skill:nth-child(6n + 2) {
+  --delay: 90ms;
+}
+.skills__grid .skill:nth-child(6n + 3) {
+  --delay: 180ms;
+}
+.skills__grid .skill:nth-child(6n + 4) {
+  --delay: 270ms;
+}
+.skills__grid .skill:nth-child(6n + 5) {
+  --delay: 360ms;
+}
+.skills__grid .skill:nth-child(6n + 6) {
+  --delay: 450ms;
+}
+
+.skill__card img {
+  animation-delay: var(--delay, 0ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skill__card img {
+    animation: none !important;
+    transform: none !important;
+  }
+  .skill__card::before,
+  .skill__card::after,
+  .skill__card .sparkle {
+    animation: none !important;
+  }
+}

@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
 
@@ -12,7 +12,6 @@ type ErrKey =
   | 'CONTACTFORM.ERROR_PRIVACY'
   | 'CONTACTFORM.ERROR_SEND'
   | 'CONTACTFORM.ERROR_SERVER';
-
 type ToastKind = 'success' | 'error';
 
 @Component({
@@ -23,13 +22,13 @@ type ToastKind = 'success' | 'error';
   styleUrls: ['./contact-form-web.component.scss'],
 })
 export class ContactFormWebComponent {
+  @ViewChild('f') form?: NgForm;
   model: ContactModel = { name: '', email: '', message: '' };
   accepted = false;
   isSending = false;
-
   errors: Partial<Record<'name' | 'email' | 'message' | 'accepted', ErrKey>> =
     {};
-
+  allValid = false;
   toast = {
     show: false,
     kind: 'success' as ToastKind,
@@ -37,58 +36,100 @@ export class ContactFormWebComponent {
   };
   private toastTimer?: any;
 
+  ngOnInit(): void {
+    this.validate();
+  }
+
+  onInput(): void {
+    this.validate();
+  }
+
   onAcceptChange(): void {
     this.errors.accepted = this.accepted
       ? undefined
       : 'CONTACTFORM.ERROR_PRIVACY';
+    this.validate();
   }
 
   private validate(): boolean {
     const e: typeof this.errors = {};
-    if (!this.model.name.trim()) e.name = 'CONTACTFORM.ERROR_NAME';
+    const name = (this.model.name || '').trim();
+    if (!this.isValidName(name)) e.name = 'CONTACTFORM.ERROR_NAME';
     if (!this.isValidEmail(this.model.email))
       e.email = 'CONTACTFORM.ERROR_EMAIL';
-    if (!this.model.message.trim()) e.message = 'CONTACTFORM.ERROR_MESSAGE';
+    const msg = (this.model.message || '').trim();
+    if (!msg || msg.length < 10) e.message = 'CONTACTFORM.ERROR_MESSAGE';
     if (!this.accepted) e.accepted = 'CONTACTFORM.ERROR_PRIVACY';
     this.errors = e;
-    return Object.keys(e).length === 0;
+    this.allValid = Object.keys(e).length === 0;
+    return this.allValid;
   }
 
-  async onSubmit(): Promise<void> {
-    if (this.isSending) return;
-    if (!this.validate()) return;
+  private isValidName(v: string): boolean {
+    const name = (v || '').trim();
+    return /^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]{2,}$/.test(name);
+  }
 
+  async onSubmit(formArg?: NgForm): Promise<void> {
+    const form = formArg || this.form;
+    if (!this.submitGuard(form)) return;
     this.isSending = true;
     try {
-      const res = await fetch('/sendMail.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(this.model),
-      });
-      const data = await res.json();
-      if (data.success) {
-        this.resetForm();
-        this.openToast('success', 'CONTACTFORM.SENT');
-      } else {
-        this.errors.message = 'CONTACTFORM.ERROR_SEND';
-        this.openToast('error', 'CONTACTFORM.ERROR_SEND');
-      }
+      const { ok, data } = await this.sendRequest();
+      if (ok && data?.success) this.handleSuccess(form);
+      else this.handleFailure('send');
     } catch {
-      this.errors.message = 'CONTACTFORM.ERROR_SERVER';
-      this.openToast('error', 'CONTACTFORM.ERROR_SERVER');
+      this.handleFailure('server');
     } finally {
       this.isSending = false;
     }
+  }
+
+  private submitGuard(form?: NgForm): boolean {
+    this.validate();
+    if (this.isSending || !this.allValid) {
+      form?.form.markAllAsTouched();
+      return false;
+    }
+    return true;
+  }
+
+  private async sendRequest(): Promise<{ ok: boolean; data: any }> {
+    const res = await fetch('/sendMail.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(this.model),
+    });
+    let data: any = {};
+    try {
+      data = await res.json();
+    } catch {
+      data = {};
+    }
+    return { ok: res.ok, data };
+  }
+
+  private handleSuccess(form?: NgForm): void {
+    this.resetForm();
+    this.openToast('success', 'CONTACTFORM.SENT');
+    form?.resetForm();
+  }
+
+  private handleFailure(kind: 'send' | 'server'): void {
+    this.errors.message =
+      kind === 'send' ? 'CONTACTFORM.ERROR_SEND' : 'CONTACTFORM.ERROR_SERVER';
+    this.openToast('error', this.errors.message);
   }
 
   private resetForm(): void {
     this.model = { name: '', email: '', message: '' };
     this.accepted = false;
     this.errors = {};
+    this.validate();
   }
 
   get okName(): boolean {
-    return !!this.model.name.trim() && !this.errors.name;
+    return this.isValidName(this.model.name) && !this.errors.name;
   }
 
   get okEmail(): boolean {
@@ -96,12 +137,12 @@ export class ContactFormWebComponent {
   }
 
   get okMessage(): boolean {
-    return !!this.model.message.trim() && !this.errors.message;
+    return !!(this.model.message || '').trim() && !this.errors.message;
   }
 
   private isValidEmail(v: string): boolean {
     const mail = (v || '').trim();
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail);
+    return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(mail) && mail.length <= 254;
   }
 
   private openToast(kind: ToastKind, msgKey: string): void {
