@@ -93,12 +93,14 @@
     justify-content: center;
     min-height: 0;
     position: relative;
+    padding-right: 40px;
+    overflow-x: clip;
 
     .contact__to-top.d-only {
       position: absolute;
       top: var(--toTop-pos-y);
-      right: calc(-1 * var(--toTop-offset-x));
-      transform: translate(100%, -50%);
+      right: 8px; 
+      transform: translateY(-50%); 
       display: inline-flex;
       justify-content: center;
       align-items: center;

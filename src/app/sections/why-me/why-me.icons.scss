@@ -1,4 +1,4 @@
-/* Relocate: Icon + Hoverstate */
+
 .relocate_icontext {
   position: relative;
   width: 50px;
@@ -27,7 +27,6 @@
   transform: translate(var(--rel-text-x), var(--rel-text-y));
 }
 
-/* Remote: Icon + Text + Pfeile */
 .remote_icon {
   position: relative;
   width: 54px;
@@ -60,7 +59,19 @@
   align-items: center;
   gap: 8px;
   height: 47px;
+  overflow: clip;     
+  max-width: 100%;
+}
+.remote_arrows img {
+  display: block;
+  height: 47px;
+  width: auto;
+  max-width: 100%;
 }
 .remote_arrows img { height: 47px; width: auto; display: block; }
 .remote_arrows .arrow-4  { transform: translate(var(--rem-a4-x),  var(--rem-a4-y)); }
-.remote_arrows .arrow-01 { transform: translate(var(--rem-a01-x), var(--rem-a01-y)); }
+.remote_arrows .arrow-01 {
+  transform:
+    translateX(clamp(-80px, var(--rem-a01-x), 0px))
+    translateY(var(--rem-a01-y));
+}

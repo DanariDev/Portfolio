@@ -93,7 +93,7 @@
   display: block;
   width: 100%;
   min-height: 52px;
-  padding: 12px 14px 28px;
+  padding: 12px 14px; 
   background: transparent;
   color: var(--text);
   font-family: var(--mono);
@@ -115,7 +115,6 @@
 .field--message .field__control {
   min-height: 196px;
   resize: vertical;
-  padding-bottom: 40px;
   line-height: 1.4;
 }
 
@@ -133,6 +132,13 @@
     font-style: normal;
     font-weight: 700;
   }
+}
+
+.error-inline--below {
+  position: static;
+  display: inline-flex;
+  gap: 6px;
+  margin-top: 8px;
 }
 
 .consent {
@@ -175,13 +181,6 @@
   background-image: url("../../../assets/img/contact/check-checked.png");
 }
 
-.error-inline--below {
-  position: static;
-  display: inline-flex;
-  gap: 6px;
-  margin-top: 8px;
-}
-
 .send-btn {
   grid-area: send;
   justify-self: end;
@@ -219,7 +218,7 @@
 input.field__control {
   height: var(--input-h);
   line-height: var(--input-h);
-  padding: 0 14px;
+  padding: 0 14px; 
   box-sizing: border-box;
 }
 
@@ -322,6 +321,7 @@ input.field__control {
     background-size: contain;
   }
 }
+
 .toast-backdrop {
   position: fixed;
   inset: 0;
@@ -332,11 +332,12 @@ input.field__control {
   -webkit-backdrop-filter: blur(2px);
   backdrop-filter: blur(2px);
   z-index: 9999;
+  cursor: pointer;
 }
 
 .toast {
   width: min(520px, 94vw);
-  background: #0c1014; 
+  background: #0c1014;
   color: var(--text);
   border-radius: 14px;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -350,6 +351,7 @@ input.field__control {
   opacity: 0;
   transform: translateY(10px) scale(0.985);
   animation: toast-in 220ms ease-out forwards;
+  cursor: default;
 }
 
 .toast__icon {
@@ -422,12 +424,6 @@ input.field__control {
     color: var(--accent);
   }
 }
-.toast-backdrop {
-  cursor: pointer;
-}
-.toast {
-  cursor: default;
-} 
 
 @media (max-width: 420px) {
   .toast {
@@ -445,7 +441,6 @@ input.field__control {
   }
 }
 
-/* Motion */
 @keyframes toast-in {
   to {
     opacity: 1;

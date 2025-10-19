@@ -2,37 +2,42 @@
   <span id="contact-form-web" class="anchor" aria-hidden="true"></span>
   <h3 class="contact__headline">{{ 'CONTACTFORM.HEADLINE' | translate }}</h3>
 
-  <form class="contact__grid" (ngSubmit)="onSubmit()" novalidate>
+  <form class="contact__grid" (ngSubmit)="onSubmit()" novalidate autocomplete="off">
     <div class="field field--name">
       <label class="sr-only" for="name">{{ 'CONTACTFORM.NAME' | translate }}</label>
       <div class="field__box">
         <input id="name" name="name" type="text" class="field__control" [placeholder]="'CONTACTFORM.NAME' | translate"
-          [(ngModel)]="model.name" required />
+          [(ngModel)]="model.name" required autocomplete="off" />
         <span class="field__ok" *ngIf="okName" aria-hidden="true"></span>
-        <span class="error-inline" *ngIf="errors.name"><i>*</i> {{ errors.name | translate }}</span>
       </div>
+      <span class="error-inline error-inline--below" *ngIf="errors.name">
+        <i>*</i> {{ errors.name | translate }}
+      </span>
     </div>
 
     <div class="field field--email">
       <label class="sr-only" for="email">{{ 'CONTACTFORM.EMAIL' | translate }}</label>
       <div class="field__box">
         <input id="email" name="email" type="email" class="field__control"
-          [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" required />
+          [placeholder]="'CONTACTFORM.EMAIL' | translate" [(ngModel)]="model.email" required autocomplete="off" />
         <span class="field__ok" *ngIf="okEmail" aria-hidden="true"></span>
-        <span class="error-inline" *ngIf="errors.email"><i>*</i> {{ errors.email | translate }}</span>
       </div>
+      <span class="error-inline error-inline--below" *ngIf="errors.email">
+        <i>*</i> {{ errors.email | translate }}
+      </span>
     </div>
 
     <div class="field field--message">
       <label class="sr-only" for="message">{{ 'CONTACTFORM.MESSAGE' | translate }}</label>
       <div class="field__box">
         <textarea id="message" name="message" class="field__control" [placeholder]="'CONTACTFORM.MESSAGE' | translate"
-          [(ngModel)]="model.message" required></textarea>
+          [(ngModel)]="model.message" required autocomplete="off"></textarea>
         <span class="field__ok" *ngIf="okMessage" aria-hidden="true"></span>
-        <span class="error-inline" *ngIf="errors.message"><i>*</i> {{ errors.message | translate }}</span>
       </div>
+      <span class="error-inline error-inline--below" *ngIf="errors.message">
+        <i>*</i> {{ errors.message | translate }}
+      </span>
     </div>
-
 
     <div class="consent">
       <label class="check">
@@ -66,6 +71,7 @@
       </div>
     </div>
   </form>
+
   <div *ngIf="toast.show" class="toast-backdrop" (click)="closeToast()">
     <div class="toast" role="alertdialog" aria-live="assertive" aria-modal="true" (click)="$event.stopPropagation()"
       [class.toast--success]="toast.kind === 'success'" [class.toast--error]="toast.kind === 'error'">

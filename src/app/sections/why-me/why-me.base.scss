@@ -33,7 +33,7 @@
   width: min(100%, 1224px);
   margin: 40px auto 0;
   display: grid;
-  grid-template-columns: 490px 1fr;
+   grid-template-columns: minmax(0, 440px) 1fr;
   column-gap: 5px;
   position: relative;
 }

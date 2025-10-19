@@ -23,7 +23,6 @@
 .arrow-5-inrow { display: block; }
 .whyme__arrow--right.arrow-5 { display: none; }
 
-/* relocate row content alignment */
 .whyme__row.relocate .row__content {
   display: flex;
   align-items: center;
@@ -31,7 +30,6 @@
   justify-content: flex-end;
 }
 
-/* Pfeil der relocate-Zeile (in-row) */
 .arrow-5-inrow {
   justify-self: end;
   transform: translate(
@@ -41,7 +39,6 @@
 }
 .arrow-5-inrow img { height: 56px; width: auto; display: block; }
 
-/* Located-Block */
 .located .located__label {
   position: relative;
   font: 700 48px/1 var(--mono);
@@ -92,7 +89,6 @@
   transform: translate(var(--loc-text-x), var(--loc-text-y));
 }
 
-/* Remote-Block: Text-Container */
 .remote .row__content {
   display: flex;
   align-items: center;
